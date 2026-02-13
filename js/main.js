@@ -1,266 +1,233 @@
-/* ========================================
-   SAVING OF SWEDOVIA — Main JavaScript
-   ======================================== */
-
+/* =============================================
+   SAVING OF SWEDOVIA — Main JS
+   ============================================= */
 (function () {
     'use strict';
 
-    // ---- Language System ----
-    let currentLang = 'en';
+    // ---- State ----
+    let lang = 'en';
 
-    function setLanguage(lang) {
-        currentLang = lang;
-        document.documentElement.lang = lang;
+    // ---- DOM refs ----
+    const $ = (s, p) => (p || document).querySelector(s);
+    const $$ = (s, p) => [...(p || document).querySelectorAll(s)];
 
-        // Update all translatable elements
-        document.querySelectorAll('[data-en]').forEach(el => {
-            const text = el.getAttribute(`data-${lang}`);
-            if (text) {
-                // Preserve HTML for elements that contain links
-                if (text.includes('<a ') || text.includes('<br')) {
-                    el.innerHTML = text;
-                } else {
-                    el.textContent = text;
-                }
+    const navbar    = $('#navbar');
+    const navLinks  = $('#navLinks');
+    const toggle    = $('#mobileToggle');
+    const langBtn   = $('#langSwitch');
+    const modal     = $('#modal');
+    const modalX    = $('#modalX');
+    const modalOk   = $('#modalOk');
+    const modalT    = $('#modalTitle');
+    const modalM    = $('#modalMsg');
+
+    // ---- Language ----
+    function setLang(l) {
+        lang = l;
+        document.documentElement.lang = l;
+
+        $$('[data-en]').forEach(el => {
+            const val = el.getAttribute('data-' + l);
+            if (!val) return;
+            if (val.includes('<a ') || val.includes('<br')) {
+                el.innerHTML = val;
+            } else {
+                el.textContent = val;
             }
         });
 
-        // Update select option texts
-        document.querySelectorAll('select option[data-en]').forEach(opt => {
-            const text = opt.getAttribute(`data-${lang}`);
-            if (text) opt.textContent = text;
+        // Options inside selects
+        $$('select option[data-en]').forEach(opt => {
+            const val = opt.getAttribute('data-' + l);
+            if (val) opt.textContent = val;
         });
 
-        // Update lang toggle active state
-        document.querySelectorAll('.lang-option').forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.lang === lang);
+        // Toggle button highlight
+        $$('.lang-switch span').forEach(s => {
+            s.classList.toggle('active',
+                (l === 'en' && s.classList.contains('lang-en')) ||
+                (l === 'sv' && s.classList.contains('lang-sv'))
+            );
         });
 
-        // Update form placeholders
-        updatePlaceholders(lang);
-
-        // Store preference
-        try {
-            localStorage.setItem('swedovia-lang', lang);
-        } catch (e) {
-            // localStorage not available
-        }
-    }
-
-    function updatePlaceholders(lang) {
-        const placeholders = {
-            en: {
-                'updates-profession': 'e.g. Crisis Manager, Firefighter...',
-                'updates-organization': 'e.g. Municipality of...',
-            },
-            sv: {
-                'updates-profession': 't.ex. Krishanterare, Brandman...',
-                'updates-organization': 't.ex. Kommun...',
-            }
-        };
-
-        const p = placeholders[lang] || placeholders.en;
-        Object.entries(p).forEach(([id, text]) => {
-            const el = document.getElementById(id);
-            if (el) el.placeholder = text;
-        });
+        try { localStorage.setItem('sos-lang', l); } catch (_) {}
     }
 
     // ---- Navigation ----
-    const navbar = document.getElementById('navbar');
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
-
-    // Scroll handling — navbar background
-    function handleScroll() {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-
-        // Update active nav link based on scroll position
-        updateActiveNavLink();
+    function onScroll() {
+        navbar.classList.toggle('scrolled', window.scrollY > 40);
+        highlightNav();
     }
 
-    function updateActiveNavLink() {
-        const sections = document.querySelectorAll('section[id]');
-        const scrollPos = window.scrollY + 120;
-
-        sections.forEach(section => {
-            const top = section.offsetTop;
-            const height = section.offsetHeight;
-            const id = section.getAttribute('id');
-            const link = document.querySelector(`.nav-menu a[href="#${id}"]`);
-
-            if (link) {
-                if (scrollPos >= top && scrollPos < top + height) {
-                    document.querySelectorAll('.nav-menu a').forEach(a => a.classList.remove('active'));
-                    link.classList.add('active');
-                }
-            }
+    function highlightNav() {
+        const scrollY = window.scrollY + 100;
+        $$('section[id], header[id]').forEach(sec => {
+            const link = $(`.nav-links a[href="#${sec.id}"]`);
+            if (!link) return;
+            const top = sec.offsetTop;
+            const bot = top + sec.offsetHeight;
+            link.classList.toggle('active', scrollY >= top && scrollY < bot);
         });
     }
 
-    // Mobile menu toggle
-    if (navToggle) {
-        navToggle.addEventListener('click', () => {
-            navToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
+    // Mobile menu
+    if (toggle) {
+        toggle.addEventListener('click', () => {
+            toggle.classList.toggle('open');
+            navLinks.classList.toggle('open');
         });
     }
 
-    // Close mobile menu on link click
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            navToggle.classList.remove('active');
-            navMenu.classList.remove('active');
+    $$('.nav-links a').forEach(a => {
+        a.addEventListener('click', () => {
+            toggle.classList.remove('open');
+            navLinks.classList.remove('open');
         });
     });
 
-    // ---- Language Toggle ----
-    const langToggle = document.getElementById('langToggle');
-    if (langToggle) {
-        langToggle.addEventListener('click', () => {
-            const newLang = currentLang === 'en' ? 'sv' : 'en';
-            setLanguage(newLang);
+    // ---- Language switch ----
+    if (langBtn) {
+        langBtn.addEventListener('click', () => {
+            setLang(lang === 'en' ? 'sv' : 'en');
         });
     }
 
-    // ---- Hero Particles ----
-    function createParticles() {
-        const container = document.getElementById('heroParticles');
-        if (!container) return;
+    // ---- Fire Canvas (subtle ember particles) ----
+    function initFireCanvas() {
+        const canvas = $('#fireCanvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let w, h, particles = [];
+        const COUNT = 50;
 
-        const count = 20;
-        for (let i = 0; i < count; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDuration = (8 + Math.random() * 12) + 's';
-            particle.style.animationDelay = (Math.random() * 10) + 's';
-            particle.style.width = (2 + Math.random() * 3) + 'px';
-            particle.style.height = particle.style.width;
-            container.appendChild(particle);
+        function resize() {
+            w = canvas.width  = canvas.offsetWidth;
+            h = canvas.height = canvas.offsetHeight;
         }
+
+        function spawn() {
+            return {
+                x: Math.random() * w,
+                y: h + Math.random() * 20,
+                r: 1 + Math.random() * 2.5,
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: -(0.3 + Math.random() * 0.8),
+                life: 0,
+                maxLife: 120 + Math.random() * 200,
+                hue: 20 + Math.random() * 25,
+            };
+        }
+
+        function init() {
+            resize();
+            for (let i = 0; i < COUNT; i++) {
+                const p = spawn();
+                p.y = Math.random() * h;
+                p.life = Math.random() * p.maxLife;
+                particles.push(p);
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, w, h);
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.life++;
+                const progress = p.life / p.maxLife;
+                const alpha = progress < 0.1 ? progress * 10 : (1 - progress);
+                if (p.life >= p.maxLife || p.y < -10) {
+                    particles[i] = spawn();
+                    continue;
+                }
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r * (1 - progress * 0.5), 0, Math.PI * 2);
+                ctx.fillStyle = `hsla(${p.hue}, 80%, 55%, ${alpha * 0.6})`;
+                ctx.fill();
+            }
+            requestAnimationFrame(draw);
+        }
+
+        window.addEventListener('resize', resize);
+        init();
+        draw();
     }
 
-    // ---- Scroll Reveal ----
-    function initScrollReveal() {
-        const revealElements = document.querySelectorAll(
-            '.section-header, .about-text, .about-visual, .timeline-item, ' +
-            '.team-card, .participation-card, .collab-content, .collab-visual, ' +
-            '.position-card, .media-placeholder'
+    // ---- Scroll reveal ----
+    function initReveal() {
+        const els = $$(
+            '.section-eyebrow, .section-heading, .section-intro, ' +
+            '.about-main, .about-aside, .phase, .member, ' +
+            '.form-panel, .collab-block, .positions-block, .media-empty'
         );
+        els.forEach(el => el.classList.add('reveal'));
 
-        revealElements.forEach(el => el.classList.add('reveal'));
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    obs.unobserve(e.target);
                 }
             });
-        }, {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-        revealElements.forEach(el => observer.observe(el));
+        els.forEach(el => obs.observe(el));
     }
 
-    // ---- Form Handling ----
-    const formModal = document.getElementById('formModal');
-    const modalClose = document.getElementById('modalClose');
-    const modalBtn = document.getElementById('modalBtn');
-
-    function showModal() {
-        formModal.classList.add('active');
+    // ---- Modal ----
+    function openModal(title, msg) {
+        modalT.textContent = title;
+        modalM.textContent = msg;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
     }
-
-    function hideModal() {
-        formModal.classList.remove('active');
+    function closeModal() {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
     }
+    if (modalX) modalX.addEventListener('click', closeModal);
+    if (modalOk) modalOk.addEventListener('click', closeModal);
+    if (modal) modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
 
-    if (modalClose) modalClose.addEventListener('click', hideModal);
-    if (modalBtn) modalBtn.addEventListener('click', hideModal);
+    // ---- Forms ----
+    const updatesForm = $('#updatesForm');
+    const interviewForm = $('#interviewForm');
 
-    if (formModal) {
-        formModal.addEventListener('click', (e) => {
-            if (e.target === formModal) hideModal();
-        });
-    }
-
-    // Updates form
-    const updatesForm = document.getElementById('updatesForm');
     if (updatesForm) {
-        updatesForm.addEventListener('submit', (e) => {
+        updatesForm.addEventListener('submit', e => {
             e.preventDefault();
-
-            // Collect form data
-            const formData = new FormData(updatesForm);
-            const data = Object.fromEntries(formData.entries());
+            const data = Object.fromEntries(new FormData(updatesForm));
             console.log('Updates signup:', data);
-
-            // In production, this would POST to a backend/API
-            // For now, show success modal
-            const title = document.getElementById('modalTitle');
-            const msg = document.getElementById('modalMessage');
-            if (title) {
-                title.setAttribute('data-en', 'Thank You!');
-                title.setAttribute('data-sv', 'Tack!');
-                title.textContent = currentLang === 'sv' ? 'Tack!' : 'Thank You!';
-            }
-            if (msg) {
-                const enMsg = 'You have been added to our mailing list. We will keep you updated on the progress of Saving of Swedovia.';
-                const svMsg = 'Du har lagts till på vår e-postlista. Vi håller dig uppdaterad om utvecklingen av Saving of Swedovia.';
-                msg.setAttribute('data-en', enMsg);
-                msg.setAttribute('data-sv', svMsg);
-                msg.textContent = currentLang === 'sv' ? svMsg : enMsg;
-            }
-
-            showModal();
+            const t = lang === 'sv' ? 'Tack!' : 'Thank You!';
+            const m = lang === 'sv'
+                ? 'Du har lagts till på vår lista. Vi håller dig uppdaterad om Saving of Swedovia.'
+                : 'You have been added to our mailing list. We will keep you updated on the progress of Saving of Swedovia.';
+            openModal(t, m);
             updatesForm.reset();
         });
     }
 
-    // Interview form
-    const interviewForm = document.getElementById('interviewForm');
     if (interviewForm) {
-        interviewForm.addEventListener('submit', (e) => {
+        interviewForm.addEventListener('submit', e => {
             e.preventDefault();
-
-            const formData = new FormData(interviewForm);
-            const data = Object.fromEntries(formData.entries());
+            const data = Object.fromEntries(new FormData(interviewForm));
             console.log('Interview signup:', data);
-
-            const title = document.getElementById('modalTitle');
-            const msg = document.getElementById('modalMessage');
-            if (title) {
-                title.setAttribute('data-en', 'Thank You for Your Interest!');
-                title.setAttribute('data-sv', 'Tack för ditt intresse!');
-                title.textContent = currentLang === 'sv' ? 'Tack för ditt intresse!' : 'Thank You for Your Interest!';
-            }
-            if (msg) {
-                const enMsg = 'We have received your interview sign-up. A member of our team will reach out to you soon to schedule a conversation.';
-                const svMsg = 'Vi har mottagit din anmälan till intervju. En medlem i vårt team kontaktar dig snart för att boka ett samtal.';
-                msg.setAttribute('data-en', enMsg);
-                msg.setAttribute('data-sv', svMsg);
-                msg.textContent = currentLang === 'sv' ? svMsg : enMsg;
-            }
-
-            showModal();
+            const t = lang === 'sv' ? 'Tack för ditt intresse!' : 'Thank You for Your Interest!';
+            const m = lang === 'sv'
+                ? 'Vi har mottagit din anmälan. En medlem i vårt team kontaktar dig snart för att boka en intervju.'
+                : 'We have received your sign-up. A member of our team will reach out to you soon to schedule an interview.';
+            openModal(t, m);
             interviewForm.reset();
         });
     }
 
-    // ---- Smooth scroll for anchor links ----
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const target = document.querySelector(this.getAttribute('href'));
+    // ---- Smooth scroll ----
+    $$('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const target = $(a.getAttribute('href'));
             if (target) {
                 e.preventDefault();
                 target.scrollIntoView({ behavior: 'smooth' });
@@ -268,37 +235,30 @@
         });
     });
 
-    // ---- Initialize ----
-    function init() {
-        // Check stored language preference
+    // ---- Init ----
+    function boot() {
+        // Detect language
         try {
-            const stored = localStorage.getItem('swedovia-lang');
-            if (stored && (stored === 'en' || stored === 'sv')) {
-                setLanguage(stored);
+            const stored = localStorage.getItem('sos-lang');
+            if (stored === 'en' || stored === 'sv') {
+                setLang(stored);
             } else {
-                // Try to detect from browser
-                const browserLang = navigator.language || navigator.userLanguage;
-                if (browserLang && browserLang.startsWith('sv')) {
-                    setLanguage('sv');
-                } else {
-                    setLanguage('en');
-                }
+                const bl = (navigator.language || '').toLowerCase();
+                setLang(bl.startsWith('sv') ? 'sv' : 'en');
             }
-        } catch (e) {
-            setLanguage('en');
+        } catch (_) {
+            setLang('en');
         }
 
-        handleScroll();
-        createParticles();
-        initScrollReveal();
-
-        window.addEventListener('scroll', handleScroll, { passive: true });
+        onScroll();
+        initFireCanvas();
+        initReveal();
+        window.addEventListener('scroll', onScroll, { passive: true });
     }
 
-    // Run on DOM ready
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
+        document.addEventListener('DOMContentLoaded', boot);
     } else {
-        init();
+        boot();
     }
 })();

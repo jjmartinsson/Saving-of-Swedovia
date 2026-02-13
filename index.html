@@ -4,408 +4,397 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saving of Swedovia</title>
-    <meta name="description" content="Saving of Swedovia - A research-based game exploring ethical dilemmas during climate hazards. Funded by Vetenskapsrådet and Crafoord Foundation.">
+    <meta name="description" content="Saving of Swedovia (SOS) — A research-based simulation game exploring ethical dilemmas in crisis management during climate-related disasters. Funded by Vetenskapsrådet and Crafoord Foundation.">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- ===== NAVIGATION ===== -->
     <nav class="navbar" id="navbar">
-        <div class="nav-container">
+        <div class="nav-inner">
             <a href="#home" class="nav-logo">
-                <span class="logo-icon">&#9878;</span>
-                <span class="logo-text">Saving of Swedovia</span>
+                <svg class="logo-shield" viewBox="0 0 32 36" width="28" height="32" aria-hidden="true">
+                    <path d="M16 0L31 8v12c0 8-6.5 13.5-15 16C7.5 33.5 1 28 1 20V8L16 0z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M16 4L28 10v10c0 6.5-5 11-12 13C9 31 4 26.5 4 20V10L16 4z" fill="currentColor" opacity="0.08"/>
+                    <text x="16" y="23" font-family="serif" font-size="14" font-weight="bold" fill="currentColor" text-anchor="middle">S</text>
+                </svg>
+                <span>Saving of Swedovia</span>
             </a>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" data-en="Home" data-sv="Hem">Home</a></li>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active" data-en="Home" data-sv="Hem">Home</a></li>
                 <li><a href="#about" data-en="About" data-sv="Om projektet">About</a></li>
                 <li><a href="#team" data-en="Team" data-sv="Teamet">Team</a></li>
                 <li><a href="#participation" data-en="Participation" data-sv="Delta">Participation</a></li>
                 <li><a href="#opportunities" data-en="Opportunities" data-sv="Möjligheter">Opportunities</a></li>
                 <li><a href="#media" data-en="Media" data-sv="Media">Media</a></li>
             </ul>
-            <button class="lang-toggle" id="langToggle" aria-label="Switch language">
-                <span class="lang-option" data-lang="en">EN</span>
-                <span class="lang-divider">|</span>
-                <span class="lang-option active" data-lang="sv">SV</span>
-            </button>
+
+            <div class="nav-right">
+                <button class="lang-switch" id="langSwitch" aria-label="Switch language">
+                    <span class="lang-en active">EN</span>
+                    <span class="lang-sv">SV</span>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-particles" id="heroParticles"></div>
+    <!-- ===== HERO ===== -->
+    <header id="home" class="hero">
+        <div class="hero-bg">
+            <div class="hero-gradient"></div>
+            <canvas id="fireCanvas" aria-hidden="true"></canvas>
+        </div>
         <div class="hero-content">
-            <div class="hero-badge" data-en="Research Project &middot; In Development" data-sv="Forskningsprojekt &middot; Under utveckling">Research Project &middot; In Development</div>
-            <h1 class="hero-title">
-                <span class="title-saving" data-en="Saving of" data-sv="Saving of">Saving of</span>
-                <span class="title-swedovia">Swedovia</span>
-            </h1>
-            <p class="hero-subtitle" data-en="A research-based game exploring ethical dilemmas practitioners face during climate-related crises" data-sv="Ett forskningsbaserat spel som utforskar etiska dilemman som yrkesverksamma ställs inför vid klimatrelaterade kriser">A research-based game exploring ethical dilemmas practitioners face during climate-related crises</p>
-            <div class="hero-cta">
-                <a href="#about" class="btn btn-primary" data-en="Discover the Project" data-sv="Utforska projektet">Discover the Project</a>
-                <a href="#participation" class="btn btn-secondary" data-en="Get Involved" data-sv="Engagera dig">Get Involved</a>
+            <div class="hero-label">
+                <span class="label-dot"></span>
+                <span data-en="Research Project — In Development" data-sv="Forskningsprojekt — Under utveckling">Research Project — In Development</span>
             </div>
-            <div class="hero-funders">
-                <span data-en="Funded by" data-sv="Finansierat av">Funded by</span>
-                <div class="funder-logos">
-                    <div class="funder-item">
-                        <img src="images/vr-logo-placeholder.svg" alt="Vetenskapsrådet" class="funder-logo">
+            <h1>
+                <span class="h1-sub" data-en="Saving of" data-sv="Saving of">Saving of</span>
+                <span class="h1-main">Swedovia</span>
+            </h1>
+            <p class="hero-desc" data-en="A simulation game that captures the ethical dilemmas practitioners face during climate-related crises. Which lives, homes, or values should be protected when not everything can be saved?" data-sv="Ett simuleringsspel som fångar de etiska dilemman som yrkesverksamma ställs inför under klimatrelaterade kriser. Vilka liv, hem eller värden ska skyddas när inte allt kan räddas?">A simulation game that captures the ethical dilemmas practitioners face during climate-related crises. Which lives, homes, or values should be protected when not everything can be saved?</p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn btn-gold" data-en="Learn More" data-sv="Läs mer">Learn More</a>
+                <a href="#participation" class="btn btn-ghost" data-en="Participate" data-sv="Delta">Participate</a>
+            </div>
+        </div>
+        <div class="hero-footer">
+            <div class="funders-bar">
+                <span class="funders-label" data-en="Funded by" data-sv="Finansierat av">Funded by</span>
+                <div class="funders-logos">
+                    <div class="funder">
+                        <img src="images/vr-logo-placeholder.svg" alt="Vetenskapsrådet">
                         <span>Vetenskapsrådet</span>
                     </div>
-                    <div class="funder-item">
-                        <img src="images/crafoord-logo-placeholder.svg" alt="Crafoord Foundation" class="funder-logo">
+                    <div class="funder-sep"></div>
+                    <div class="funder">
+                        <img src="images/crafoord-logo-placeholder.svg" alt="Crafoordska stiftelsen">
                         <span>Crafoordska stiftelsen</span>
                     </div>
                 </div>
             </div>
+            <div class="scroll-cue" aria-hidden="true">
+                <div class="scroll-line"></div>
+            </div>
         </div>
-        <div class="scroll-indicator">
-            <div class="scroll-arrow"></div>
+    </header>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-eyebrow" data-en="About the Project" data-sv="Om projektet">About the Project</div>
+            <h2 class="section-heading" data-en="What is Saving of Swedovia?" data-sv="Vad är Saving of Swedovia?">What is Saving of Swedovia?</h2>
+
+            <div class="about-layout">
+                <div class="about-main">
+                    <p class="lead" data-en="Saving of Swedovia (SOS) is a research-based simulation game currently in development. The game places participants in the roles of key actors in crisis management — such as firefighters, police officers, and municipal officials — who must make difficult decisions during an ongoing wildfire in the fictional city of Swedovia." data-sv="Saving of Swedovia (SOS) är ett forskningsbaserat simuleringsspel som för närvarande utvecklas. Spelet låter deltagarna inta rollerna som centrala aktörer inom krishantering — som brandmän, poliser och kommunala tjänstemän — som måste fatta svåra beslut under en pågående skogsbrand i den fiktiva staden Swedovia.">Saving of Swedovia (SOS) is a research-based simulation game currently in development. The game places participants in the roles of key actors in crisis management — such as firefighters, police officers, and municipal officials — who must make difficult decisions during an ongoing wildfire in the fictional city of Swedovia.</p>
+
+                    <p data-en="Every decision in the game carries ethical consequences and impacts society at large. When decision-makers and rescue personnel must balance democratic values, professional ethics, and ethical principles under time pressure and uncertainty, there is a risk of both moral stress and inadequate crisis management. Despite this, there is currently limited knowledge about how ethical dilemmas are actually handled in practice and what consequences different priorities have for the overall crisis response." data-sv="Varje beslut i spelet bär etiska konsekvenser och påverkar samhället i stort. När beslutsfattare och räddningspersonal måste balansera demokratiska värden, yrkesetik och etiska principer under tidspress och osäkerhet finns det risk för både moralisk stress och otillräcklig krishantering. Trots detta finns det för närvarande begränsad kunskap om hur etiska dilemman faktiskt hanteras i praktiken och vilka konsekvenser olika prioriteringar har för den övergripande krishanteringen.">Every decision in the game carries ethical consequences and impacts society at large. When decision-makers and rescue personnel must balance democratic values, professional ethics, and ethical principles under time pressure and uncertainty, there is a risk of both moral stress and inadequate crisis management. Despite this, there is currently limited knowledge about how ethical dilemmas are actually handled in practice and what consequences different priorities have for the overall crisis response.</p>
+
+                    <p data-en="The project's overarching purpose is to contribute new knowledge about how ethical dilemmas are handled in climate crises and how decision-making can strengthen both individual and societal resilience." data-sv="Projektets övergripande syfte är att bidra med ny kunskap om hur etiska dilemman hanteras vid klimatkriser och hur beslutsfattande kan stärka både individuell och samhällelig motståndskraft.">The project's overarching purpose is to contribute new knowledge about how ethical dilemmas are handled in climate crises and how decision-making can strengthen both individual and societal resilience.</p>
+
+                    <div class="about-tags">
+                        <span class="tag" data-en="Ethical Dilemmas" data-sv="Etiska dilemman">Ethical Dilemmas</span>
+                        <span class="tag" data-en="Crisis Management" data-sv="Krishantering">Crisis Management</span>
+                        <span class="tag" data-en="Serious Games" data-sv="Serious Games">Serious Games</span>
+                        <span class="tag" data-en="Climate Hazards" data-sv="Klimatkatastrofer">Climate Hazards</span>
+                        <span class="tag" data-en="Decision-Making" data-sv="Beslutsfattande">Decision-Making</span>
+                    </div>
+                </div>
+
+                <aside class="about-aside">
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                            <span data-en="Project Status" data-sv="Projektstatus">Project Status</span>
+                        </div>
+                        <div class="info-card-body">
+                            <div class="status-badge" data-en="In Development" data-sv="Under utveckling">In Development</div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                            <span data-en="Institutions" data-sv="Institutioner">Institutions</span>
+                        </div>
+                        <div class="info-card-body">
+                            <p data-en="Linnaeus University" data-sv="Linnéuniversitetet">Linnaeus University</p>
+                            <p data-en="Blekinge Institute of Technology" data-sv="Blekinge tekniska högskola">Blekinge Institute of Technology</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                            <span data-en="Funding" data-sv="Finansiering">Funding</span>
+                        </div>
+                        <div class="info-card-body">
+                            <p>Vetenskapsrådet</p>
+                            <p>Crafoordska stiftelsen</p>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- ===== RESEARCH PHASES ===== -->
+            <div class="phases">
+                <h3 class="phases-heading" data-en="Research Phases" data-sv="Forskningsfaser">Research Phases</h3>
+                <div class="phases-track">
+                    <div class="phases-progress" style="width: 37%"></div>
+                </div>
+                <div class="phases-grid">
+                    <div class="phase done">
+                        <div class="phase-marker">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <div class="phase-number" data-en="Phase 1" data-sv="Fas 1">Phase 1</div>
+                        <h4 data-en="Literature Review &amp; Theoretical Framework" data-sv="Litteraturöversikt &amp; Teoretiskt ramverk">Literature Review &amp; Theoretical Framework</h4>
+                        <p data-en="Systematic review of research on ethical dilemmas in crisis management. Development of the theoretical framework." data-sv="Systematisk genomgång av forskning om etiska dilemman inom krishantering. Utveckling av det teoretiska ramverket.">Systematic review of research on ethical dilemmas in crisis management. Development of the theoretical framework.</p>
+                    </div>
+                    <div class="phase current">
+                        <div class="phase-marker"><span class="phase-pulse"></span></div>
+                        <div class="phase-number" data-en="Phase 2" data-sv="Fas 2">Phase 2</div>
+                        <span class="phase-badge" data-en="Current" data-sv="Nuvarande">Current</span>
+                        <h4 data-en="Interviews &amp; Game Development" data-sv="Intervjuer &amp; Spelutveckling">Interviews &amp; Game Development</h4>
+                        <p data-en="Conducting in-depth interviews with practitioners in crisis management. Their real-world experiences directly inform the game's scenarios and decision architecture. Simultaneously designing and developing the simulation game." data-sv="Genomför djupintervjuer med yrkesverksamma inom krishantering. Deras verkliga erfarenheter informerar direkt spelets scenarion och beslutsarkitektur. Samtidigt designas och utvecklas simuleringsspelet.">Conducting in-depth interviews with practitioners in crisis management. Their real-world experiences directly inform the game's scenarios and decision architecture. Simultaneously designing and developing the simulation game.</p>
+                    </div>
+                    <div class="phase future">
+                        <div class="phase-marker"></div>
+                        <div class="phase-number" data-en="Phase 3" data-sv="Fas 3">Phase 3</div>
+                        <h4 data-en="Playtesting &amp; Iteration" data-sv="Speltestning &amp; Iteration">Playtesting &amp; Iteration</h4>
+                        <p data-en="Testing with practitioners and stakeholders. Iterating on game mechanics, scenarios, and the ethical dilemma framework." data-sv="Testning med yrkesverksamma och intressenter. Iteration av spelmekanik, scenarion och det etiska dilemmaramverket.">Testing with practitioners and stakeholders. Iterating on game mechanics, scenarios, and the ethical dilemma framework.</p>
+                    </div>
+                    <div class="phase future">
+                        <div class="phase-marker"></div>
+                        <div class="phase-number" data-en="Phase 4" data-sv="Fas 4">Phase 4</div>
+                        <h4 data-en="Analysis &amp; Publication" data-sv="Analys &amp; Publicering">Analysis &amp; Publication</h4>
+                        <p data-en="Data analysis, academic publications, and dissemination. Release of the game as a resource for education and training." data-sv="Dataanalys, akademiska publikationer och spridning. Lansering av spelet som resurs för utbildning och träning.">Data analysis, academic publications, and dissemination. Release of the game as a resource for education and training.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section about-section">
+    <!-- ===== TEAM ===== -->
+    <section id="team" class="section section-dark">
         <div class="container">
-            <div class="section-header">
-                <span class="section-label" data-en="About the Project" data-sv="Om projektet">About the Project</span>
-                <h2 class="section-title" data-en="What is Saving of Swedovia?" data-sv="Vad är Saving of Swedovia?">What is Saving of Swedovia?</h2>
-            </div>
-
-            <div class="about-grid">
-                <div class="about-text">
-                    <p data-en="Saving of Swedovia is a research-based serious game currently in development at Linnaeus University. The game places players in the role of decision-makers who must navigate complex ethical dilemmas that arise during climate-related hazards and crises." data-sv="Saving of Swedovia är ett forskningsbaserat serious game som för närvarande utvecklas vid Linnéuniversitetet. Spelet låter spelarna inta rollen som beslutsfattare som måste navigera komplexa etiska dilemman som uppstår under klimatrelaterade faror och kriser.">
-                        Saving of Swedovia is a research-based serious game currently in development at Linnaeus University. The game places players in the role of decision-makers who must navigate complex ethical dilemmas that arise during climate-related hazards and crises.
-                    </p>
-                    <p data-en="Drawing on real-world scenarios and practitioner experiences, the game aims to serve as both a pedagogical tool and a platform for understanding how ethical reasoning shapes decisions under pressure. By combining normative questions&mdash;what ought we do?&mdash;with empirical insights&mdash;what are we actually doing?&mdash;the project bridges the gap between theory and practice." data-sv="Med utgångspunkt i verkliga scenarion och yrkesverksammas erfarenheter syftar spelet till att fungera som både ett pedagogiskt verktyg och en plattform för att förstå hur etiskt resonerande formar beslut under press. Genom att kombinera normativa frågor&mdash;vad bör vi göra?&mdash;med empiriska insikter&mdash;vad gör vi faktiskt?&mdash;överbryggar projektet klyftan mellan teori och praktik.">
-                        Drawing on real-world scenarios and practitioner experiences, the game aims to serve as both a pedagogical tool and a platform for understanding how ethical reasoning shapes decisions under pressure. By combining normative questions&mdash;what ought we do?&mdash;with empirical insights&mdash;what are we actually doing?&mdash;the project bridges the gap between theory and practice.
-                    </p>
-                    <p data-en="The project is generously funded by Vetenskapsrådet (the Swedish Research Council) and the Crafoord Foundation." data-sv="Projektet finansieras generöst av Vetenskapsrådet och Crafoordska stiftelsen.">
-                        The project is generously funded by Vetenskapsrådet (the Swedish Research Council) and the Crafoord Foundation.
-                    </p>
-                </div>
-                <div class="about-visual">
-                    <div class="game-preview">
-                        <div class="game-preview-inner">
-                            <div class="preview-icon">&#127983;</div>
-                            <p data-en="Game preview coming soon" data-sv="Förhandsvisning av spelet kommer snart">Game preview coming soon</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Research Phases Timeline -->
-            <div class="timeline-wrapper">
-                <h3 class="timeline-title" data-en="Research Phases" data-sv="Forskningsfaser">Research Phases</h3>
-                <div class="timeline">
-                    <div class="timeline-line"></div>
-                    <div class="timeline-progress"></div>
-
-                    <div class="timeline-item completed">
-                        <div class="timeline-marker">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="timeline-phase" data-en="Phase 1" data-sv="Fas 1">Phase 1</div>
-                            <h4 data-en="Literature Review &amp; Framework" data-sv="Litteraturöversikt &amp; Ramverk">Literature Review &amp; Framework</h4>
-                            <p data-en="Systematic review of existing research on ethical dilemmas in crisis management and climate-related hazards. Development of the theoretical framework guiding the project." data-sv="Systematisk genomgång av befintlig forskning om etiska dilemman inom krishantering och klimatrelaterade faror. Utveckling av det teoretiska ramverk som vägleder projektet.">
-                                Systematic review of existing research on ethical dilemmas in crisis management and climate-related hazards. Development of the theoretical framework guiding the project.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item active">
-                        <div class="timeline-marker">
-                            <div class="pulse-ring"></div>
-                        </div>
-                        <div class="timeline-content">
-                            <div class="timeline-phase" data-en="Phase 2" data-sv="Fas 2">Phase 2</div>
-                            <span class="timeline-badge" data-en="Current Phase" data-sv="Nuvarande fas">Current Phase</span>
-                            <h4 data-en="Interviews &amp; Game Development" data-sv="Intervjuer &amp; Spelutveckling">Interviews &amp; Game Development</h4>
-                            <p data-en="We are currently conducting in-depth interviews with practitioners to understand the real ethical dilemmas they face during climate-related crises. These insights directly inform the game's scenarios and decision architecture. Simultaneously, the game is being designed and developed." data-sv="Vi genomför för närvarande djupintervjuer med yrkesverksamma för att förstå de verkliga etiska dilemman de ställs inför under klimatrelaterade kriser. Dessa insikter informerar direkt spelets scenarion och beslutsarkitektur. Samtidigt designas och utvecklas spelet.">
-                                We are currently conducting in-depth interviews with practitioners to understand the real ethical dilemmas they face during climate-related crises. These insights directly inform the game's scenarios and decision architecture. Simultaneously, the game is being designed and developed.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item upcoming">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-phase" data-en="Phase 3" data-sv="Fas 3">Phase 3</div>
-                            <h4 data-en="Testing &amp; Iteration" data-sv="Testning &amp; Iteration">Testing &amp; Iteration</h4>
-                            <p data-en="Playtesting sessions with practitioners and stakeholders, iterating on game mechanics, scenarios, and the ethical dilemma framework based on feedback." data-sv="Speltestningssessioner med yrkesverksamma och intressenter, iteration av spelmekanik, scenarion och det etiska dilemmaramverket baserat på återkoppling.">
-                                Playtesting sessions with practitioners and stakeholders, iterating on game mechanics, scenarios, and the ethical dilemma framework based on feedback.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item upcoming">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-phase" data-en="Phase 4" data-sv="Fas 4">Phase 4</div>
-                            <h4 data-en="Analysis &amp; Publication" data-sv="Analys &amp; Publicering">Analysis &amp; Publication</h4>
-                            <p data-en="Final data analysis, academic publications, and broader dissemination of findings. Release of the game as an open resource for education and training." data-sv="Slutgiltig dataanalys, akademiska publikationer och bredare spridning av resultat. Lansering av spelet som en öppen resurs för utbildning och träning.">
-                                Final data analysis, academic publications, and broader dissemination of findings. Release of the game as an open resource for education and training.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="team" class="section team-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label" data-en="Our Team" data-sv="Vårt team">Our Team</span>
-                <h2 class="section-title" data-en="Project Participants" data-sv="Projektdeltagare">Project Participants</h2>
-            </div>
-
-            <div class="team-grid">
-                <div class="team-card">
-                    <div class="team-photo">
+            <div class="section-eyebrow light" data-en="The Team" data-sv="Teamet">The Team</div>
+            <h2 class="section-heading light" data-en="Project Participants" data-sv="Projektdeltagare">Project Participants</h2>
+            <div class="team-row">
+                <article class="member">
+                    <div class="member-img">
                         <img src="images/joel-placeholder.svg" alt="Joel Martinsson">
                     </div>
-                    <div class="team-info">
-                        <span class="team-role" data-en="Principal Investigator" data-sv="Projektledare (PI)">Principal Investigator</span>
+                    <div class="member-body">
+                        <span class="member-role" data-en="Principal Investigator" data-sv="Projektledare (PI)">Principal Investigator</span>
                         <h3>Joel Martinsson</h3>
-                        <p data-en="Researcher &amp; Lecturer, Department of Political Science, Linnaeus University. Former Fulbright scholar at Harvard University." data-sv="Forskare &amp; Universitetslektor, Institutionen för statsvetenskap, Linnéuniversitetet. Tidigare Fulbright-stipendiat vid Harvard University.">
-                            Researcher &amp; Lecturer, Department of Political Science, Linnaeus University. Former Fulbright scholar at Harvard University.
-                        </p>
-                        <a href="mailto:joel.martinsson@lnu.se" class="team-link">joel.martinsson@lnu.se</a>
+                        <p data-en="Researcher &amp; Lecturer, Department of Political Science, Linnaeus University. Former Fulbright scholar at the Edmond &amp; Lily Safra Center for Ethics and the Greene Lab, Harvard University." data-sv="Forskare &amp; universitetslektor, Institutionen för statsvetenskap, Linnéuniversitetet. Tidigare Fulbright-stipendiat vid Edmond &amp; Lily Safra Center for Ethics och Greene Lab, Harvard University.">Researcher &amp; Lecturer, Department of Political Science, Linnaeus University. Former Fulbright scholar at the Edmond &amp; Lily Safra Center for Ethics and the Greene Lab, Harvard University.</p>
+                        <a href="mailto:joel.martinsson@lnu.se" class="member-email">joel.martinsson@lnu.se</a>
                     </div>
-                </div>
-
-                <div class="team-card">
-                    <div class="team-photo">
+                </article>
+                <article class="member">
+                    <div class="member-img">
                         <img src="images/veronica-placeholder.svg" alt="Veronica">
                     </div>
-                    <div class="team-info">
-                        <span class="team-role" data-en="Researcher" data-sv="Forskare">Researcher</span>
+                    <div class="member-body">
+                        <span class="member-role" data-en="Researcher" data-sv="Forskare">Researcher</span>
                         <h3>Veronica</h3>
-                        <p data-en="[Bio coming soon]" data-sv="[Beskrivning kommer snart]">[Bio coming soon]</p>
+                        <p data-en="Bio coming soon." data-sv="Beskrivning kommer snart.">Bio coming soon.</p>
                     </div>
-                </div>
-
-                <div class="team-card">
-                    <div class="team-photo">
+                </article>
+                <article class="member">
+                    <div class="member-img">
                         <img src="images/anders-placeholder.svg" alt="Anders">
                     </div>
-                    <div class="team-info">
-                        <span class="team-role" data-en="Researcher" data-sv="Forskare">Researcher</span>
+                    <div class="member-body">
+                        <span class="member-role" data-en="Researcher" data-sv="Forskare">Researcher</span>
                         <h3>Anders</h3>
-                        <p data-en="[Bio coming soon]" data-sv="[Beskrivning kommer snart]">[Bio coming soon]</p>
+                        <p data-en="Bio coming soon." data-sv="Beskrivning kommer snart.">Bio coming soon.</p>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Participation Section -->
-    <section id="participation" class="section participation-section">
+    <!-- ===== PARTICIPATION ===== -->
+    <section id="participation" class="section section-alt">
         <div class="container">
-            <div class="section-header">
-                <span class="section-label" data-en="Get Involved" data-sv="Engagera dig">Get Involved</span>
-                <h2 class="section-title" data-en="Participation" data-sv="Delta">Participation</h2>
-                <p class="section-desc" data-en="There are two ways you can contribute to the Saving of Swedovia project. Whether you want to stay informed or actively participate in shaping the game, we would love to hear from you." data-sv="Det finns två sätt du kan bidra till Saving of Swedovia-projektet. Oavsett om du vill hålla dig informerad eller aktivt delta i att forma spelet, vill vi gärna höra från dig.">
-                    There are two ways you can contribute to the Saving of Swedovia project. Whether you want to stay informed or actively participate in shaping the game, we would love to hear from you.
-                </p>
-            </div>
+            <div class="section-eyebrow" data-en="Get Involved" data-sv="Engagera dig">Get Involved</div>
+            <h2 class="section-heading" data-en="Participation" data-sv="Delta">Participation</h2>
+            <p class="section-intro" data-en="Are you a practitioner working in crisis management, emergency services, policing, healthcare, or municipal administration? There are two ways you can contribute to the project." data-sv="Arbetar du inom krishantering, räddningstjänst, polis, sjukvård eller kommunal förvaltning? Det finns två sätt du kan bidra till projektet.">Are you a practitioner working in crisis management, emergency services, policing, healthcare, or municipal administration? There are two ways you can contribute to the project.</p>
 
-            <div class="participation-grid">
-                <!-- Sign up for updates -->
-                <div class="participation-card">
-                    <div class="card-icon">&#128232;</div>
-                    <h3 data-en="Stay Informed" data-sv="Håll dig informerad">Stay Informed</h3>
-                    <p data-en="Are you a practitioner working in crisis management, emergency services, or related fields? Sign up to receive updates about the game's development and be among the first to know when playtesting opportunities become available." data-sv="Arbetar du inom krishantering, räddningstjänst eller relaterade områden? Anmäl dig för att få uppdateringar om spelets utveckling och var bland de första att få veta när möjligheter till speltestning blir tillgängliga.">
-                        Are you a practitioner working in crisis management, emergency services, or related fields? Sign up to receive updates about the game's development and be among the first to know when playtesting opportunities become available.
-                    </p>
-                    <form class="signup-form" id="updatesForm">
-                        <div class="form-group">
-                            <label for="updates-name" data-en="Full Name" data-sv="Fullständigt namn">Full Name</label>
-                            <input type="text" id="updates-name" name="name" required>
+            <div class="forms-grid">
+                <!-- FORM 1: Stay Informed -->
+                <div class="form-panel">
+                    <div class="form-panel-header">
+                        <div class="form-icon">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                         </div>
-                        <div class="form-group">
-                            <label for="updates-email" data-en="Email Address" data-sv="E-postadress">Email Address</label>
-                            <input type="email" id="updates-email" name="email" required>
+                        <h3 data-en="Stay Informed" data-sv="Håll dig informerad">Stay Informed</h3>
+                        <p data-en="Sign up to receive updates about the game and be notified when playtesting opportunities become available." data-sv="Anmäl dig för att få uppdateringar om spelet och bli meddelad när möjligheter till speltestning blir tillgängliga.">Sign up to receive updates about the game and be notified when playtesting opportunities become available.</p>
+                    </div>
+                    <form class="form" id="updatesForm" novalidate>
+                        <div class="field">
+                            <label for="u-name" data-en="Full Name" data-sv="Fullständigt namn">Full Name</label>
+                            <input type="text" id="u-name" name="name" required autocomplete="name">
                         </div>
-                        <div class="form-group">
-                            <label for="updates-profession" data-en="Profession" data-sv="Yrke">Profession</label>
-                            <input type="text" id="updates-profession" name="profession" placeholder="">
+                        <div class="field">
+                            <label for="u-email" data-en="Email" data-sv="E-post">Email</label>
+                            <input type="email" id="u-email" name="email" required autocomplete="email">
                         </div>
-                        <div class="form-group">
-                            <label for="updates-organization" data-en="Organization" data-sv="Organisation">Organization</label>
-                            <input type="text" id="updates-organization" name="organization">
+                        <div class="field">
+                            <label for="u-profession" data-en="Profession" data-sv="Yrke">Profession</label>
+                            <input type="text" id="u-profession" name="profession" autocomplete="organization-title">
                         </div>
-                        <button type="submit" class="btn btn-primary" data-en="Sign Up for Updates" data-sv="Anmäl dig för uppdateringar">Sign Up for Updates</button>
+                        <div class="field">
+                            <label for="u-org" data-en="Organization" data-sv="Organisation">Organization</label>
+                            <input type="text" id="u-org" name="organization" autocomplete="organization">
+                        </div>
+                        <button type="submit" class="btn btn-gold full-width" data-en="Sign Up for Updates" data-sv="Anmäl dig för uppdateringar">Sign Up for Updates</button>
                     </form>
                 </div>
 
-                <!-- Sign up for interview -->
-                <div class="participation-card">
-                    <div class="card-icon">&#127897;</div>
-                    <h3 data-en="Participate in an Interview" data-sv="Delta i en intervju">Participate in an Interview</h3>
-                    <p data-en="We are seeking practitioners who would like to share their experiences and help shape the game through a research interview. Your insights into the ethical dilemmas you face in your work are invaluable to making the game realistic and meaningful." data-sv="Vi söker yrkesverksamma som vill dela sina erfarenheter och hjälpa till att forma spelet genom en forskningsintervju. Dina insikter om de etiska dilemman du möter i ditt arbete är ovärderliga för att göra spelet realistiskt och meningsfullt.">
-                        We are seeking practitioners who would like to share their experiences and help shape the game through a research interview. Your insights into the ethical dilemmas you face in your work are invaluable to making the game realistic and meaningful.
-                    </p>
-                    <form class="signup-form" id="interviewForm">
-                        <div class="form-group">
-                            <label for="interview-name" data-en="Full Name" data-sv="Fullständigt namn">Full Name</label>
-                            <input type="text" id="interview-name" name="name" required>
+                <!-- FORM 2: Interview -->
+                <div class="form-panel">
+                    <div class="form-panel-header">
+                        <div class="form-icon">
+                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                         </div>
-                        <div class="form-group">
-                            <label for="interview-email" data-en="Email Address" data-sv="E-postadress">Email Address</label>
-                            <input type="email" id="interview-email" name="email" required>
+                        <h3 data-en="Participate in an Interview" data-sv="Delta i en intervju">Participate in an Interview</h3>
+                        <p data-en="Help shape the game by sharing your professional experiences with ethical dilemmas in crisis situations through a research interview." data-sv="Hjälp till att forma spelet genom att dela dina professionella erfarenheter av etiska dilemman i krissituationer genom en forskningsintervju.">Help shape the game by sharing your professional experiences with ethical dilemmas in crisis situations through a research interview.</p>
+                    </div>
+                    <form class="form" id="interviewForm" novalidate>
+                        <div class="field">
+                            <label for="i-name" data-en="Full Name" data-sv="Fullständigt namn">Full Name</label>
+                            <input type="text" id="i-name" name="name" required autocomplete="name">
                         </div>
-                        <div class="form-group">
-                            <label for="interview-profession" data-en="Profession / Role" data-sv="Yrke / Roll">Profession / Role</label>
-                            <select id="interview-profession" name="profession" required>
-                                <option value="" data-en="Select your profession" data-sv="Välj ditt yrke">Select your profession</option>
-                                <option value="crisis-management" data-en="Crisis Management" data-sv="Krishantering">Crisis Management</option>
-                                <option value="emergency-services" data-en="Emergency Services" data-sv="Räddningstjänst">Emergency Services</option>
-                                <option value="municipal-planning" data-en="Municipal Planning" data-sv="Kommunal planering">Municipal Planning</option>
-                                <option value="social-services" data-en="Social Services" data-sv="Socialtjänst">Social Services</option>
-                                <option value="healthcare" data-en="Healthcare" data-sv="Sjukvård">Healthcare</option>
-                                <option value="police" data-en="Police" data-sv="Polis">Police</option>
-                                <option value="military" data-en="Military / Civil Defense" data-sv="Militär / Civilförsvar">Military / Civil Defense</option>
-                                <option value="other" data-en="Other" data-sv="Annat">Other</option>
-                            </select>
+                        <div class="field">
+                            <label for="i-email" data-en="Email" data-sv="E-post">Email</label>
+                            <input type="email" id="i-email" name="email" required autocomplete="email">
                         </div>
-                        <div class="form-group">
-                            <label for="interview-years" data-en="Years in Profession" data-sv="År i yrket">Years in Profession</label>
-                            <select id="interview-years" name="years" required>
-                                <option value="" data-en="Select range" data-sv="Välj intervall">Select range</option>
-                                <option value="0-2">0&ndash;2</option>
-                                <option value="3-5">3&ndash;5</option>
-                                <option value="6-10">6&ndash;10</option>
-                                <option value="11-20">11&ndash;20</option>
-                                <option value="20+">20+</option>
-                            </select>
+                        <div class="field-row">
+                            <div class="field">
+                                <label for="i-profession" data-en="Profession / Role" data-sv="Yrke / Roll">Profession / Role</label>
+                                <select id="i-profession" name="profession" required>
+                                    <option value="" data-en="Select..." data-sv="Välj...">Select...</option>
+                                    <option value="firefighter" data-en="Firefighter / Rescue Services" data-sv="Brandman / Räddningstjänst">Firefighter / Rescue Services</option>
+                                    <option value="police" data-en="Police" data-sv="Polis">Police</option>
+                                    <option value="municipal" data-en="Municipal Official" data-sv="Kommunal tjänsteman">Municipal Official</option>
+                                    <option value="healthcare" data-en="Healthcare" data-sv="Sjukvård">Healthcare</option>
+                                    <option value="social-services" data-en="Social Services" data-sv="Socialtjänst">Social Services</option>
+                                    <option value="crisis-management" data-en="Crisis Management" data-sv="Krishantering">Crisis Management</option>
+                                    <option value="military-civil-defense" data-en="Military / Civil Defense" data-sv="Militär / Civilförsvar">Military / Civil Defense</option>
+                                    <option value="other" data-en="Other" data-sv="Annat">Other</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label for="i-years" data-en="Years in Profession" data-sv="År i yrket">Years in Profession</label>
+                                <select id="i-years" name="years" required>
+                                    <option value="" data-en="Select..." data-sv="Välj...">Select...</option>
+                                    <option value="0-2">0–2</option>
+                                    <option value="3-5">3–5</option>
+                                    <option value="6-10">6–10</option>
+                                    <option value="11-20">11–20</option>
+                                    <option value="20+">20+</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="interview-gender" data-en="Gender" data-sv="Kön">Gender</label>
-                            <select id="interview-gender" name="gender">
+                        <div class="field">
+                            <label for="i-gender" data-en="Gender" data-sv="Kön">Gender</label>
+                            <select id="i-gender" name="gender">
                                 <option value="" data-en="Prefer not to say" data-sv="Vill inte uppge">Prefer not to say</option>
-                                <option value="female" data-en="Female" data-sv="Kvinna">Female</option>
-                                <option value="male" data-en="Male" data-sv="Man">Male</option>
+                                <option value="woman" data-en="Woman" data-sv="Kvinna">Woman</option>
+                                <option value="man" data-en="Man" data-sv="Man">Man</option>
                                 <option value="non-binary" data-en="Non-binary" data-sv="Icke-binär">Non-binary</option>
                                 <option value="other" data-en="Other" data-sv="Annat">Other</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="interview-message" data-en="Anything you'd like us to know? (Optional)" data-sv="Något du vill att vi ska veta? (Valfritt)">Anything you'd like us to know? (Optional)</label>
-                            <textarea id="interview-message" name="message" rows="3"></textarea>
+                        <div class="field">
+                            <label for="i-msg" data-en="Anything you'd like us to know? (Optional)" data-sv="Något du vill att vi ska veta? (Valfritt)">Anything you'd like us to know? (Optional)</label>
+                            <textarea id="i-msg" name="message" rows="3"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" data-en="Sign Up for Interview" data-sv="Anmäl dig för intervju">Sign Up for Interview</button>
+                        <button type="submit" class="btn btn-gold full-width" data-en="Sign Up for Interview" data-sv="Anmäl dig för intervju">Sign Up for Interview</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Opportunities Section -->
-    <section id="opportunities" class="section opportunities-section">
+    <!-- ===== OPPORTUNITIES ===== -->
+    <section id="opportunities" class="section">
         <div class="container">
-            <div class="section-header">
-                <span class="section-label" data-en="Opportunities" data-sv="Möjligheter">Opportunities</span>
-                <h2 class="section-title" data-en="Collaborate With Us" data-sv="Samarbeta med oss">Collaborate With Us</h2>
-            </div>
+            <div class="section-eyebrow" data-en="Opportunities" data-sv="Möjligheter">Opportunities</div>
+            <h2 class="section-heading" data-en="Collaborate With Us" data-sv="Samarbeta med oss">Collaborate With Us</h2>
 
-            <!-- Collaboration -->
-            <div class="opportunities-collab">
-                <div class="collab-content">
+            <div class="collab-block">
+                <div class="collab-text">
                     <h3 data-en="Research Collaboration" data-sv="Forskningssamarbete">Research Collaboration</h3>
-                    <p data-en="We welcome collaboration with researchers and practitioners who share our interest in ethical decision-making, crisis management, serious games, and pedagogical innovation. Whether you are interested in contributing to the current project or exploring new directions together&mdash;such as adapting the game framework for new contexts, conducting comparative studies, or developing complementary research&mdash;we are eager to connect." data-sv="Vi välkomnar samarbete med forskare och yrkesverksamma som delar vårt intresse för etiskt beslutsfattande, krishantering, serious games och pedagogisk innovation. Oavsett om du är intresserad av att bidra till det nuvarande projektet eller utforska nya riktningar tillsammans&mdash;som att anpassa spelramverket för nya sammanhang, genomföra jämförande studier eller utveckla kompletterande forskning&mdash;vill vi gärna komma i kontakt.">
-                        We welcome collaboration with researchers and practitioners who share our interest in ethical decision-making, crisis management, serious games, and pedagogical innovation. Whether you are interested in contributing to the current project or exploring new directions together&mdash;such as adapting the game framework for new contexts, conducting comparative studies, or developing complementary research&mdash;we are eager to connect.
-                    </p>
-                    <p data-en="Please reach out to <a href='mailto:joel.martinsson@lnu.se'>Joel Martinsson</a> to discuss potential collaborations." data-sv="Kontakta gärna <a href='mailto:joel.martinsson@lnu.se'>Joel Martinsson</a> för att diskutera potentiella samarbeten.">
-                        Please reach out to <a href="mailto:joel.martinsson@lnu.se">Joel Martinsson</a> to discuss potential collaborations.
-                    </p>
-                </div>
-                <div class="collab-visual">
-                    <div class="collab-icon-grid">
-                        <div class="collab-icon-item">
-                            <span>&#129504;</span>
-                            <small data-en="Research" data-sv="Forskning">Research</small>
-                        </div>
-                        <div class="collab-icon-item">
-                            <span>&#127891;</span>
-                            <small data-en="Education" data-sv="Utbildning">Education</small>
-                        </div>
-                        <div class="collab-icon-item">
-                            <span>&#127758;</span>
-                            <small data-en="International" data-sv="Internationellt">International</small>
-                        </div>
-                        <div class="collab-icon-item">
-                            <span>&#128300;</span>
-                            <small data-en="Innovation" data-sv="Innovation">Innovation</small>
-                        </div>
-                    </div>
+                    <p data-en="We welcome collaboration with researchers and practitioners who share our interest in ethical decision-making, crisis management, serious games, and pedagogical innovation. Whether you are interested in contributing to the current project or exploring new directions together — such as adapting the game framework for different crisis contexts, conducting comparative studies across countries, or developing complementary research on moral stress and resilience — we are eager to connect and explore possibilities." data-sv="Vi välkomnar samarbete med forskare och yrkesverksamma som delar vårt intresse för etiskt beslutsfattande, krishantering, serious games och pedagogisk innovation. Oavsett om du är intresserad av att bidra till det nuvarande projektet eller utforska nya riktningar tillsammans — som att anpassa spelramverket för olika krissammanhang, genomföra jämförande studier mellan länder eller utveckla kompletterande forskning om moralisk stress och motståndskraft — vill vi gärna komma i kontakt och utforska möjligheter.">We welcome collaboration with researchers and practitioners who share our interest in ethical decision-making, crisis management, serious games, and pedagogical innovation. Whether you are interested in contributing to the current project or exploring new directions together — such as adapting the game framework for different crisis contexts, conducting comparative studies across countries, or developing complementary research on moral stress and resilience — we are eager to connect and explore possibilities.</p>
+                    <p class="collab-contact" data-en="To discuss potential collaborations, please contact <a href='mailto:joel.martinsson@lnu.se'>Joel Martinsson</a>." data-sv="För att diskutera potentiella samarbeten, kontakta <a href='mailto:joel.martinsson@lnu.se'>Joel Martinsson</a>.">To discuss potential collaborations, please contact <a href="mailto:joel.martinsson@lnu.se">Joel Martinsson</a>.</p>
                 </div>
             </div>
 
             <!-- Open Positions -->
-            <div class="positions-wrapper">
+            <div class="positions-block">
                 <h3 data-en="Open Positions" data-sv="Lediga tjänster">Open Positions</h3>
-                <div class="positions-grid">
-                    <div class="position-card">
-                        <div class="position-badge" data-en="Now Recruiting" data-sv="Rekryterar nu">Now Recruiting</div>
-                        <h4 data-en="Position 1" data-sv="Tjänst 1">Position 1</h4>
-                        <p data-en="Details and application link coming soon." data-sv="Detaljer och ansökningslänk kommer snart.">Details and application link coming soon.</p>
-                        <a href="#" class="btn btn-outline disabled" data-en="Link Coming Soon" data-sv="Länk kommer snart">Link Coming Soon</a>
-                    </div>
-                    <div class="position-card">
-                        <div class="position-badge" data-en="Now Recruiting" data-sv="Rekryterar nu">Now Recruiting</div>
-                        <h4 data-en="Position 2" data-sv="Tjänst 2">Position 2</h4>
-                        <p data-en="Details and application link coming soon." data-sv="Detaljer och ansökningslänk kommer snart.">Details and application link coming soon.</p>
-                        <a href="#" class="btn btn-outline disabled" data-en="Link Coming Soon" data-sv="Länk kommer snart">Link Coming Soon</a>
+                <div class="positions-list">
+                    <a href="https://vakanser.se/jobb/projektassistent+i+datavetenskap+med+inriktning+digital+spelutveckling/" target="_blank" rel="noopener" class="position-item">
+                        <div class="position-top">
+                            <span class="position-badge" data-en="Now Recruiting" data-sv="Rekryterar nu">Now Recruiting</span>
+                            <span class="position-deadline" data-en="Deadline: 2026-03-08" data-sv="Sista ansökningsdag: 2026-03-08">Deadline: 2026-03-08</span>
+                        </div>
+                        <h4 data-en="Project Assistant in Computer Science — Digital Game Development" data-sv="Projektassistent i datavetenskap — Digital spelutveckling">Project Assistant in Computer Science — Digital Game Development</h4>
+                        <p data-en="Part-time position at Blekinge Institute of Technology (BTH), Department of Computer Science. Work on the development of the Saving of Swedovia simulation game using the Godot engine." data-sv="Deltidstjänst vid Blekinge tekniska högskola (BTH), Institutionen för datavetenskap. Arbeta med utvecklingen av simuleringsspelet Saving of Swedovia i Godot-motorn.">Part-time position at Blekinge Institute of Technology (BTH), Department of Computer Science. Work on the development of the Saving of Swedovia simulation game using the Godot engine.</p>
+                        <span class="position-cta" data-en="View Position →" data-sv="Se tjänsten →">View Position →</span>
+                    </a>
+                    <div class="position-item placeholder-position">
+                        <div class="position-top">
+                            <span class="position-badge" data-en="Coming Soon" data-sv="Kommer snart">Coming Soon</span>
+                        </div>
+                        <h4 data-en="Additional Position" data-sv="Ytterligare tjänst">Additional Position</h4>
+                        <p data-en="Details and application link will be posted here when available." data-sv="Detaljer och ansökningslänk publiceras här när de blir tillgängliga.">Details and application link will be posted here when available.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Media Section -->
-    <section id="media" class="section media-section">
+    <!-- ===== MEDIA ===== -->
+    <section id="media" class="section section-alt">
         <div class="container">
-            <div class="section-header">
-                <span class="section-label" data-en="In the Spotlight" data-sv="I rampljuset">In the Spotlight</span>
-                <h2 class="section-title" data-en="Media" data-sv="Media">Media</h2>
-                <p class="section-desc" data-en="Coverage, appearances, and project updates." data-sv="Bevakning, framträdanden och projektuppdateringar.">Coverage, appearances, and project updates.</p>
-            </div>
-
-            <div class="media-grid">
-                <div class="media-placeholder">
-                    <div class="media-placeholder-icon">&#128240;</div>
-                    <p data-en="Media appearances and press coverage will be listed here as they become available." data-sv="Mediaframträdanden och pressbevakning kommer att listas här allteftersom de blir tillgängliga.">Media appearances and press coverage will be listed here as they become available.</p>
-                </div>
+            <div class="section-eyebrow" data-en="In the Spotlight" data-sv="I rampljuset">In the Spotlight</div>
+            <h2 class="section-heading" data-en="Media" data-sv="Media">Media</h2>
+            <div class="media-empty">
+                <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                <p data-en="Media appearances, press coverage, and project news will be shared here as they become available." data-sv="Mediaframträdanden, pressbevakning och projektnyheter delas här allteftersom de blir tillgängliga.">Media appearances, press coverage, and project news will be shared here as they become available.</p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
+            <div class="footer-top">
                 <div class="footer-brand">
-                    <span class="logo-icon">&#9878;</span>
-                    <span class="logo-text">Saving of Swedovia</span>
-                    <p data-en="A research project at Linnaeus University exploring ethical dilemmas in climate-related crises through serious game design." data-sv="Ett forskningsprojekt vid Linnéuniversitetet som utforskar etiska dilemman vid klimatrelaterade kriser genom serious game-design.">A research project at Linnaeus University exploring ethical dilemmas in climate-related crises through serious game design.</p>
+                    <div class="footer-logo">
+                        <svg class="logo-shield" viewBox="0 0 32 36" width="24" height="28" aria-hidden="true">
+                            <path d="M16 0L31 8v12c0 8-6.5 13.5-15 16C7.5 33.5 1 28 1 20V8L16 0z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                            <text x="16" y="23" font-family="serif" font-size="14" font-weight="bold" fill="currentColor" text-anchor="middle">S</text>
+                        </svg>
+                        <span>Saving of Swedovia</span>
+                    </div>
+                    <p data-en="A research project exploring ethical dilemmas in climate-related crisis management through simulation game design." data-sv="Ett forskningsprojekt som utforskar etiska dilemman vid klimatrelaterad krishantering genom design av simuleringsspel.">A research project exploring ethical dilemmas in climate-related crisis management through simulation game design.</p>
                 </div>
-                <div class="footer-links">
-                    <h4 data-en="Navigation" data-sv="Navigation">Navigation</h4>
+                <div class="footer-col">
+                    <h4 data-en="Sections" data-sv="Sektioner">Sections</h4>
                     <ul>
                         <li><a href="#home" data-en="Home" data-sv="Hem">Home</a></li>
                         <li><a href="#about" data-en="About" data-sv="Om projektet">About</a></li>
@@ -415,34 +404,36 @@
                         <li><a href="#media" data-en="Media" data-sv="Media">Media</a></li>
                     </ul>
                 </div>
-                <div class="footer-contact">
+                <div class="footer-col">
                     <h4 data-en="Contact" data-sv="Kontakt">Contact</h4>
-                    <p>Joel Martinsson<br>
-                    <a href="mailto:joel.martinsson@lnu.se">joel.martinsson@lnu.se</a></p>
-                    <p data-en="Department of Political Science<br>Linnaeus University<br>Sweden" data-sv="Institutionen för statsvetenskap<br>Linnéuniversitetet<br>Sverige">Department of Political Science<br>Linnaeus University<br>Sweden</p>
+                    <p>Joel Martinsson</p>
+                    <p><a href="mailto:joel.martinsson@lnu.se">joel.martinsson@lnu.se</a></p>
+                    <p class="footer-address" data-en="Dept. of Political Science<br>Linnaeus University<br>Sweden" data-sv="Inst. för statsvetenskap<br>Linnéuniversitetet<br>Sverige">Dept. of Political Science<br>Linnaeus University<br>Sweden</p>
                 </div>
-                <div class="footer-funders">
+                <div class="footer-col">
                     <h4 data-en="Funded by" data-sv="Finansierat av">Funded by</h4>
-                    <div class="footer-funder-logos">
+                    <div class="footer-funders">
                         <img src="images/vr-logo-placeholder.svg" alt="Vetenskapsrådet">
-                        <img src="images/crafoord-logo-placeholder.svg" alt="Crafoord Foundation">
+                        <img src="images/crafoord-logo-placeholder.svg" alt="Crafoordska stiftelsen">
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025&ndash;2026 Saving of Swedovia. <span data-en="All rights reserved." data-sv="Alla rättigheter förbehållna.">All rights reserved.</span></p>
+                <p>&copy; 2025–2026 Saving of Swedovia &middot; Linnaeus University</p>
             </div>
         </div>
     </footer>
 
-    <!-- Form Success Modal -->
-    <div class="modal-overlay" id="formModal">
-        <div class="modal">
-            <button class="modal-close" id="modalClose">&times;</button>
-            <div class="modal-icon">&#10003;</div>
-            <h3 id="modalTitle" data-en="Thank You!" data-sv="Tack!">Thank You!</h3>
-            <p id="modalMessage" data-en="Your submission has been received. We will be in touch soon." data-sv="Din anmälan har mottagits. Vi hör av oss snart.">Your submission has been received. We will be in touch soon.</p>
-            <button class="btn btn-primary modal-btn" id="modalBtn" data-en="Close" data-sv="Stäng">Close</button>
+    <!-- ===== MODAL ===== -->
+    <div class="modal-backdrop" id="modal" aria-hidden="true">
+        <div class="modal-box" role="dialog">
+            <button class="modal-x" id="modalX" aria-label="Close">&times;</button>
+            <div class="modal-check">
+                <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#fff" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 id="modalTitle">Thank You!</h3>
+            <p id="modalMsg">Your submission has been received.</p>
+            <button class="btn btn-gold" id="modalOk">OK</button>
         </div>
     </div>
 
