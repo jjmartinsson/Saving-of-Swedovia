@@ -48,20 +48,27 @@
 
     <!-- ===== HERO ===== -->
     <header id="home" class="hero">
-        <div class="hero-image">
-            <img src="images/sos-hero.png" alt="Saving of Swedovia — a dramatic scene of a city engulfed in wildfire with a helicopter fighting the blaze">
-            <div class="hero-image-fade"></div>
+        <div class="hero-bg">
+            <div class="hero-gradient"></div>
+            <canvas id="fireCanvas" aria-hidden="true"></canvas>
         </div>
         <div class="hero-content">
             <div class="hero-label">
                 <span class="label-dot"></span>
                 <span data-en="Research Project — In Development" data-sv="Forskningsprojekt — Under utveckling">Research Project — In Development</span>
             </div>
-            <p class="hero-tagline" data-en="A research game that investigates ethical decision-making during climate-related crises — how professionals prioritize under pressure, and what the consequences are for individuals and society." data-sv="Ett forskningsspel som undersöker etiskt beslutsfattande under klimatrelaterade kriser — hur yrkesverksamma prioriterar under press och vilka konsekvenser det får för individer och samhälle.">A research game that investigates ethical decision-making during climate-related crises — how professionals prioritize under pressure, and what the consequences are for individuals and society.</p>
+            <h1>
+                <span class="h1-line"><span class="h1-main">Saving</span> <span class="h1-of">of</span></span>
+                <span class="h1-main">Swedovia</span>
+            </h1>
+            <p class="hero-tagline" data-en="Which lives &amp; values should be protected when not everything can be saved?" data-sv="Vilka liv &amp; värden ska skyddas när inte allt kan räddas?">Which lives &amp; values should be protected when not everything can be saved?</p>
+            <p class="hero-desc" data-en="A research game that investigates ethical decision-making during climate-related crises — how professionals prioritize under pressure, and what the consequences are for individuals and society." data-sv="Ett forskningsspel som undersöker etiskt beslutsfattande under klimatrelaterade kriser — hur yrkesverksamma prioriterar under press och vilka konsekvenser det får för individer och samhälle.">A research game that investigates ethical decision-making during climate-related crises — how professionals prioritize under pressure, and what the consequences are for individuals and society.</p>
             <div class="hero-buttons">
                 <a href="#about" class="btn btn-primary" data-en="Learn More" data-sv="Läs mer">Learn More</a>
                 <a href="#research" class="btn btn-ghost" data-en="Research" data-sv="Forskning">Research</a>
             </div>
+        </div>
+        <div class="hero-footer">
             <div class="funders-bar">
                 <span class="funders-label" data-en="Funded by" data-sv="Finansierat av">Funded by</span>
                 <div class="funders-logos">
@@ -75,6 +82,9 @@
                         <span data-en="The Crafoord Foundation" data-sv="Crafoordska stiftelsen">The Crafoord Foundation</span>
                     </a>
                 </div>
+            </div>
+            <div class="scroll-cue" aria-hidden="true">
+                <div class="scroll-line"></div>
             </div>
         </div>
     </header>
