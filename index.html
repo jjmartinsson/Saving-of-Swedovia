@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;700;800;900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 </head>
 <body>
@@ -20,7 +20,7 @@
                 <svg class="logo-mark" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
                     <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="1.5"/>
                     <circle cx="16" cy="16" r="10" fill="currentColor" opacity="0.06"/>
-                    <text x="16" y="20.5" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="currentColor" text-anchor="middle" letter-spacing="0.5">SOS</text>
+                    <text x="16" y="21" font-family="'Playfair Display', serif" font-size="16" font-weight="700" fill="currentColor" text-anchor="middle">S</text>
                 </svg>
                 <span>Saving of Swedovia</span>
             </a>
@@ -71,15 +71,15 @@
             <div class="funders-bar">
                 <span class="funders-label" data-en="Funded by" data-sv="Finansierat av">Funded by</span>
                 <div class="funders-logos">
-                    <div class="funder">
+                    <a href="https://www.vr.se/english.html" target="_blank" rel="noopener" class="funder" data-en-href="https://www.vr.se/english.html" data-sv-href="https://www.vr.se">
                         <img src="images/vr-logo-placeholder.svg" alt="Vetenskapsrådet">
-                        <span>Vetenskapsrådet</span>
-                    </div>
+                        <span data-en="Swedish Research Council" data-sv="Vetenskapsrådet">Swedish Research Council</span>
+                    </a>
                     <div class="funder-sep"></div>
-                    <div class="funder">
+                    <a href="https://www.crafoord.se/en/" target="_blank" rel="noopener" class="funder" data-en-href="https://www.crafoord.se/en/" data-sv-href="https://www.crafoord.se">
                         <img src="images/crafoord-logo-placeholder.svg" alt="Crafoordska stiftelsen">
-                        <span>Crafoordska stiftelsen</span>
-                    </div>
+                        <span data-en="The Crafoord Foundation" data-sv="Crafoordska stiftelsen">The Crafoord Foundation</span>
+                    </a>
                 </div>
             </div>
             <div class="scroll-cue" aria-hidden="true">
@@ -109,6 +109,12 @@
                         <span class="tag" data-en="Climate Hazards" data-sv="Klimatkatastrofer">Climate Hazards</span>
                         <span class="tag" data-en="Decision-Making" data-sv="Beslutsfattande">Decision-Making</span>
                     </div>
+
+                    <div class="interested-block">
+                        <h3 data-en="Interested in Saving of Swedovia?" data-sv="Intresserad av Saving of Swedovia?">Interested in Saving of Swedovia?</h3>
+                        <p data-en="We welcome collaboration with researchers and practitioners who share our interest in ethical decision-making, crisis management, serious games, and pedagogical innovation. Whether you are interested in contributing to the current project or exploring new directions together — such as adapting the game framework for different crisis contexts, conducting comparative studies across countries, or developing complementary research on moral stress and resilience — we are eager to connect and explore possibilities." data-sv="Vi välkomnar samarbete med forskare och yrkesverksamma som delar vårt intresse för etiskt beslutsfattande, krishantering, serious games och pedagogisk innovation. Oavsett om du är intresserad av att bidra till det nuvarande projektet eller utforska nya riktningar tillsammans — som att anpassa spelramverket för olika krissammanhang, genomföra jämförande studier mellan länder eller utveckla kompletterande forskning om moralisk stress och motståndskraft — vill vi gärna komma i kontakt och utforska möjligheter.">We welcome collaboration with researchers and practitioners who share our interest in ethical decision-making, crisis management, serious games, and pedagogical innovation. Whether you are interested in contributing to the current project or exploring new directions together — such as adapting the game framework for different crisis contexts, conducting comparative studies across countries, or developing complementary research on moral stress and resilience — we are eager to connect and explore possibilities.</p>
+                        <p data-en="To discuss potential collaborations, please contact <a href='mailto:joel.martinsson@lnu.se'>Joel Martinsson</a>." data-sv="För att diskutera potentiella samarbeten, kontakta <a href='mailto:joel.martinsson@lnu.se'>Joel Martinsson</a>.">To discuss potential collaborations, please contact <a href="mailto:joel.martinsson@lnu.se">Joel Martinsson</a>.</p>
+                    </div>
                 </div>
 
                 <aside class="about-aside">
@@ -137,8 +143,8 @@
                             <span data-en="Funding" data-sv="Finansiering">Funding</span>
                         </div>
                         <div class="info-card-body">
-                            <p>Vetenskapsrådet</p>
-                            <p>Crafoordska stiftelsen</p>
+                            <p><a href="https://www.vr.se/english.html" target="_blank" rel="noopener" class="institution-link" data-en="Swedish Research Council" data-sv="Vetenskapsrådet">Swedish Research Council</a></p>
+                            <p><a href="https://www.crafoord.se/en/" target="_blank" rel="noopener" class="institution-link" data-en="The Crafoord Foundation" data-sv="Crafoordska stiftelsen">The Crafoord Foundation</a></p>
                         </div>
                     </div>
                 </aside>
@@ -195,24 +201,24 @@
             <div class="section-eyebrow light" data-en="The Team" data-sv="Teamet">The Team</div>
             <h2 class="section-heading light" data-en="Project Participants" data-sv="Projektdeltagare">Project Participants</h2>
             <div class="team-row">
-                <article class="member">
+                <a href="https://joelmartinsson.org" target="_blank" rel="noopener" class="member">
                     <div class="member-img">
                         <img src="images/joel.jpg" alt="Joel Martinsson">
                     </div>
                     <h3>Joel Martinsson</h3>
-                </article>
-                <article class="member">
+                </a>
+                <a href="https://www.bth.se/om-bth/personer/veronica-sundstedt" target="_blank" rel="noopener" class="member">
                     <div class="member-img">
                         <img src="images/veronica.webp" alt="Veronica Sundstedt">
                     </div>
                     <h3>Veronica Sundstedt</h3>
-                </article>
-                <article class="member">
+                </a>
+                <a href="https://lnu.se/personal/anders.bremer/" target="_blank" rel="noopener" class="member">
                     <div class="member-img">
                         <img src="images/anders.jpg" alt="Anders Bremer">
                     </div>
                     <h3>Anders Bremer</h3>
-                </article>
+                </a>
             </div>
         </div>
     </section>
@@ -222,7 +228,7 @@
         <div class="container">
             <div class="section-eyebrow" data-en="Research" data-sv="Forskning">Research</div>
             <h2 class="section-heading" data-en="Research &amp; Presentations" data-sv="Forskning &amp; Presentationer">Research &amp; Presentations</h2>
-            <p class="section-intro" data-en="The research behind Saving of Swedovia is an ongoing, interdisciplinary process. Below you will find information about upcoming presentations, opportunities for collaboration, and — as the project develops — publications, data, and insights into how game mechanics can serve research purposes." data-sv="Forskningen bakom Saving of Swedovia är en pågående, tvärvetenskaplig process. Nedan hittar du information om kommande presentationer, möjligheter till samarbete och — allteftersom projektet utvecklas — publikationer, data och insikter om hur spelmekanik kan tjäna forskningsändamål.">The research behind Saving of Swedovia is an ongoing, interdisciplinary process. Below you will find information about upcoming presentations, opportunities for collaboration, and — as the project develops — publications, data, and insights into how game mechanics can serve research purposes.</p>
+            <p class="section-intro" data-en="The research behind Saving of Swedovia is an ongoing, interdisciplinary process. Below you will find information about upcoming presentations and — as the project develops — publications, data, and insights into how game mechanics can serve research purposes." data-sv="Forskningen bakom Saving of Swedovia är en pågående, tvärvetenskaplig process. Nedan hittar du information om kommande presentationer och — allteftersom projektet utvecklas — publikationer, data och insikter om hur spelmekanik kan tjäna forskningsändamål.">The research behind Saving of Swedovia is an ongoing, interdisciplinary process. Below you will find information about upcoming presentations and — as the project develops — publications, data, and insights into how game mechanics can serve research purposes.</p>
 
             <!-- Presentations -->
             <div class="research-block">
@@ -273,13 +279,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Collaboration -->
-            <div class="research-block">
-                <h3 data-en="Collaboration" data-sv="Samarbete">Collaboration</h3>
-                <p data-en="We welcome collaboration with researchers and practitioners who share our interest in ethical decision-making, crisis management, serious games, and pedagogical innovation. Whether you are interested in contributing to the current project or exploring new directions together — such as adapting the game framework for different crisis contexts, conducting comparative studies across countries, or developing complementary research on moral stress and resilience — we are eager to connect and explore possibilities." data-sv="Vi välkomnar samarbete med forskare och yrkesverksamma som delar vårt intresse för etiskt beslutsfattande, krishantering, serious games och pedagogisk innovation. Oavsett om du är intresserad av att bidra till det nuvarande projektet eller utforska nya riktningar tillsammans — som att anpassa spelramverket för olika krissammanhang, genomföra jämförande studier mellan länder eller utveckla kompletterande forskning om moralisk stress och motståndskraft — vill vi gärna komma i kontakt och utforska möjligheter.">We welcome collaboration with researchers and practitioners who share our interest in ethical decision-making, crisis management, serious games, and pedagogical innovation. Whether you are interested in contributing to the current project or exploring new directions together — such as adapting the game framework for different crisis contexts, conducting comparative studies across countries, or developing complementary research on moral stress and resilience — we are eager to connect and explore possibilities.</p>
-                <p class="collab-contact" data-en="To discuss potential collaborations, please contact <a href='mailto:joel.martinsson@lnu.se'>Joel Martinsson</a>." data-sv="För att diskutera potentiella samarbeten, kontakta <a href='mailto:joel.martinsson@lnu.se'>Joel Martinsson</a>.">To discuss potential collaborations, please contact <a href="mailto:joel.martinsson@lnu.se">Joel Martinsson</a>.</p>
             </div>
 
             <!-- Coming Soon -->
@@ -339,7 +338,7 @@
                     <div class="footer-logo">
                         <svg class="logo-mark" viewBox="0 0 32 32" width="24" height="24" aria-hidden="true">
                             <circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="1.5"/>
-                            <text x="16" y="20.5" font-family="Inter, sans-serif" font-size="11" font-weight="800" fill="currentColor" text-anchor="middle" letter-spacing="0.5">SOS</text>
+                            <text x="16" y="21" font-family="'Playfair Display', serif" font-size="16" font-weight="700" fill="currentColor" text-anchor="middle">S</text>
                         </svg>
                         <span>Saving of Swedovia</span>
                     </div>
@@ -369,10 +368,10 @@
                         <li><a href="https://www.bth.se" target="_blank" rel="noopener" data-en="Blekinge Institute of Technology" data-sv="Blekinge tekniska högskola">Blekinge Institute of Technology</a></li>
                     </ul>
                     <h4 data-en="Funded by" data-sv="Finansierat av" style="margin-top:1rem">Funded by</h4>
-                    <div class="footer-funders">
-                        <img src="images/vr-logo-placeholder.svg" alt="Vetenskapsrådet">
-                        <img src="images/crafoord-logo-placeholder.svg" alt="Crafoordska stiftelsen">
-                    </div>
+                    <ul>
+                        <li><a href="https://www.vr.se/english.html" target="_blank" rel="noopener" data-en="Swedish Research Council" data-sv="Vetenskapsrådet">Swedish Research Council</a></li>
+                        <li><a href="https://www.crafoord.se/en/" target="_blank" rel="noopener" data-en="The Crafoord Foundation" data-sv="Crafoordska stiftelsen">The Crafoord Foundation</a></li>
+                    </ul>
                 </div>
             </div>
             <div class="footer-bottom">

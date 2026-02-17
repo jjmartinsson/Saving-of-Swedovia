@@ -24,8 +24,8 @@
     --text-3:      #8b949e;
     --border:      #d0d7de;
 
-    /* Type — Inter for everything, modern feel */
-    --font-display: 'Inter', sans-serif;
+    /* Type — Playfair Display for headings, Inter for body */
+    --font-display: 'Playfair Display', serif;
     --font-body:    'Inter', sans-serif;
     --font-ui:      'Inter', sans-serif;
 
@@ -181,8 +181,8 @@ input,select,textarea{font-family:var(--font-ui)}
 }
 .h1-main{
     display:block;font-family:var(--font-display);
-    font-size:clamp(2.8rem,7.5vw,4.5rem);font-weight:800;
-    letter-spacing:-.01em;line-height:1.05;
+    font-size:clamp(2.8rem,7.5vw,4.5rem);font-weight:900;
+    letter-spacing:.02em;line-height:1.05;
     background:linear-gradient(180deg,#fff 30%,var(--gold-light) 100%);
     -webkit-background-clip:text;-webkit-text-fill-color:transparent;
     background-clip:text;
@@ -236,8 +236,10 @@ input,select,textarea{font-family:var(--font-ui)}
     color:rgba(255,255,255,.25);display:block;margin-bottom:.4rem;
 }
 .funders-logos{display:flex;align-items:center;gap:1.2rem}
-.funder{display:flex;align-items:center;gap:.4rem;color:rgba(255,255,255,.4);font-family:var(--font-ui);font-size:.75rem}
-.funder img{width:24px;height:24px;opacity:.4}
+.funder{display:flex;align-items:center;gap:.4rem;color:rgba(255,255,255,.4);font-family:var(--font-ui);font-size:.75rem;transition:color .2s}
+a.funder:hover{color:rgba(255,255,255,.7)}
+.funder img{width:24px;height:24px;opacity:.4;transition:opacity .2s}
+a.funder:hover img{opacity:.6}
 .funder-sep{width:1px;height:20px;background:rgba(255,255,255,.12)}
 
 .scroll-cue{display:flex;flex-direction:column;align-items:center}
@@ -322,6 +324,25 @@ input,select,textarea{font-family:var(--font-ui)}
 }
 .institution-link:hover{color:var(--text)}
 
+/* Interested block in About */
+.interested-block{
+    margin-top:2rem;padding-top:1.5rem;
+    border-top:1px solid var(--border);
+}
+.interested-block h3{
+    font-family:var(--font-display);font-size:1.15rem;font-weight:700;
+    color:var(--text);margin-bottom:.75rem;
+}
+.interested-block p{
+    font-size:.92rem;color:var(--text-2);line-height:1.7;margin-bottom:.5rem;
+}
+.interested-block a{
+    color:var(--accent);font-weight:600;
+    border-bottom:1px solid rgba(74,111,165,.3);
+    transition:border-color .2s;
+}
+.interested-block a:hover{border-color:var(--accent)}
+
 /* =============================================
    RESEARCH PHASES
    ============================================= */
@@ -397,12 +418,13 @@ input,select,textarea{font-family:var(--font-ui)}
     max-width:720px;margin:0 auto;
 }
 .member{
-    text-align:center;
+    display:block;text-align:center;
     transition:all .3s var(--ease);
 }
 .member:hover{
     transform:translateY(-3px);
 }
+a.member{text-decoration:none}
 .member-img{
     width:180px;height:180px;border-radius:50%;overflow:hidden;
     margin:0 auto 1rem;
@@ -429,13 +451,6 @@ input,select,textarea{font-family:var(--font-ui)}
     color:var(--text);margin-bottom:1.2rem;letter-spacing:-.01em;
 }
 .research-block p{font-size:.92rem;color:var(--text-2);margin-bottom:.75rem;line-height:1.7}
-
-.collab-contact a{
-    color:var(--accent);font-weight:600;
-    border-bottom:1px solid rgba(74,111,165,.3);
-    transition:border-color .2s;
-}
-.collab-contact a:hover{border-color:var(--accent)}
 
 /* Presentations grid */
 .presentations-grid{
@@ -587,10 +602,6 @@ a.position-item:hover .position-cta{color:var(--text)}
 .footer-col a:hover{color:#fff}
 .footer-col p{font-family:var(--font-ui);font-size:.82rem;margin-bottom:.2rem}
 .footer-address{color:rgba(255,255,255,.3);margin-top:.3rem}
-
-.footer-funders{display:flex;flex-direction:column;gap:.75rem}
-.footer-funders img{width:90px;opacity:.35;transition:opacity .2s}
-.footer-funders img:hover{opacity:.6}
 
 .footer-bottom{
     border-top:1px solid rgba(255,255,255,.06);

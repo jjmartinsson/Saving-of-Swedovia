@@ -42,6 +42,12 @@
             if (val) opt.textContent = val;
         });
 
+        // Language-dependent links
+        $$('[data-en-href]').forEach(el => {
+            const href = el.getAttribute('data-' + l + '-href');
+            if (href) el.setAttribute('href', href);
+        });
+
         // Toggle button highlight
         $$('.lang-switch span').forEach(s => {
             s.classList.toggle('active',
