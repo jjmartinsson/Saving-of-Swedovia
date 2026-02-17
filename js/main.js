@@ -164,7 +164,7 @@
     function initReveal() {
         const els = $$(
             '.section-eyebrow, .section-heading, .section-intro, ' +
-            '.about-content, .research-questions, .member, ' +
+            '.about-content, .research-questions, .phase, .member, ' +
             '.research-block, .research-coming, ' +
             '.presentation-item, .positions-block, .contact-form-wrap'
         );
