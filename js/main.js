@@ -1,41 +1,271 @@
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            const navbarHeight = document.querySelector('.navbar').offsetHeight;
-            const targetPosition = target.offsetTop - navbarHeight - 20;
+/* =============================================
+   SAVING OF SWEDOVIA — Main JS
+   ============================================= */
+(function () {
+    'use strict';
 
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
+    // ---- State ----
+    let lang = 'en';
+
+    // ---- DOM refs ----
+    const $ = (s, p) => (p || document).querySelector(s);
+    const $$ = (s, p) => [...(p || document).querySelectorAll(s)];
+
+    const navbar    = $('#navbar');
+    const navLinks  = $('#navLinks');
+    const toggle    = $('#mobileToggle');
+    const langBtn   = $('#langSwitch');
+    const modal     = $('#modal');
+    const modalX    = $('#modalX');
+    const modalOk   = $('#modalOk');
+    const modalT    = $('#modalTitle');
+    const modalM    = $('#modalMsg');
+
+    // ---- Language ----
+    function setLang(l) {
+        lang = l;
+        document.documentElement.lang = l;
+
+        $$('[data-en]').forEach(el => {
+            const val = el.getAttribute('data-' + l);
+            if (!val) return;
+            if (val.includes('<a ') || val.includes('<br')) {
+                el.innerHTML = val;
+            } else {
+                el.textContent = val;
+            }
+        });
+
+        // Options inside selects
+        $$('select option[data-en]').forEach(opt => {
+            const val = opt.getAttribute('data-' + l);
+            if (val) opt.textContent = val;
+        });
+
+        // Language-dependent links
+        $$('[data-en-href]').forEach(el => {
+            const href = el.getAttribute('data-' + l + '-href');
+            if (href) el.setAttribute('href', href);
+        });
+
+        // Toggle button highlight
+        $$('.lang-switch span').forEach(s => {
+            s.classList.toggle('active',
+                (l === 'en' && s.classList.contains('lang-en')) ||
+                (l === 'sv' && s.classList.contains('lang-sv'))
+            );
+        });
+
+        try { localStorage.setItem('sos-lang', l); } catch (_) {}
+    }
+
+    // ---- Navigation ----
+    function onScroll() {
+        navbar.classList.toggle('scrolled', window.scrollY > 40);
+        highlightNav();
+    }
+
+    function highlightNav() {
+        const scrollY = window.scrollY + 100;
+        $$('section[id], header[id]').forEach(sec => {
+            const link = $(`.nav-links a[href="#${sec.id}"]`);
+            if (!link) return;
+            const top = sec.offsetTop;
+            const bot = top + sec.offsetHeight;
+            link.classList.toggle('active', scrollY >= top && scrollY < bot);
+        });
+    }
+
+    // Mobile menu
+    if (toggle) {
+        toggle.addEventListener('click', () => {
+            toggle.classList.toggle('open');
+            navLinks.classList.toggle('open');
+        });
+    }
+
+    $$('.nav-links a').forEach(a => {
+        a.addEventListener('click', () => {
+            toggle.classList.remove('open');
+            navLinks.classList.remove('open');
+        });
+    });
+
+    // ---- Language switch ----
+    if (langBtn) {
+        langBtn.addEventListener('click', () => {
+            setLang(lang === 'en' ? 'sv' : 'en');
+        });
+    }
+
+    // ---- Fire Canvas (subtle ember particles) ----
+    function initFireCanvas() {
+        const canvas = $('#fireCanvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let w, h, particles = [];
+        const COUNT = 50;
+
+        function resize() {
+            w = canvas.width  = canvas.offsetWidth;
+            h = canvas.height = canvas.offsetHeight;
+        }
+
+        function spawn() {
+            return {
+                x: Math.random() * w,
+                y: h + Math.random() * 20,
+                r: 1 + Math.random() * 2.5,
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: -(0.3 + Math.random() * 0.8),
+                life: 0,
+                maxLife: 120 + Math.random() * 200,
+                hue: 20 + Math.random() * 25,
+            };
+        }
+
+        function init() {
+            resize();
+            for (let i = 0; i < COUNT; i++) {
+                const p = spawn();
+                p.y = Math.random() * h;
+                p.life = Math.random() * p.maxLife;
+                particles.push(p);
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, w, h);
+            for (let i = particles.length - 1; i >= 0; i--) {
+                const p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+                p.life++;
+                const progress = p.life / p.maxLife;
+                const alpha = progress < 0.1 ? progress * 10 : (1 - progress);
+                if (p.life >= p.maxLife || p.y < -10) {
+                    particles[i] = spawn();
+                    continue;
+                }
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r * (1 - progress * 0.5), 0, Math.PI * 2);
+                ctx.fillStyle = `hsla(${p.hue}, 80%, 55%, ${alpha * 0.6})`;
+                ctx.fill();
+            }
+            requestAnimationFrame(draw);
+        }
+
+        window.addEventListener('resize', resize);
+        init();
+        draw();
+    }
+
+    // ---- Scroll reveal ----
+    function initReveal() {
+        const els = $$(
+            '.section-eyebrow, .section-heading, .section-intro, ' +
+            '.about-main, .about-aside, .phase, .member, ' +
+            '.interested-block, .research-block, .research-coming, ' +
+            '.presentation-item, .positions-block, .media-empty'
+        );
+        els.forEach(el => el.classList.add('reveal'));
+
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    obs.unobserve(e.target);
+                }
             });
-        }
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        els.forEach(el => obs.observe(el));
+    }
+
+    // ---- Modal ----
+    function openModal(title, msg) {
+        modalT.textContent = title;
+        modalM.textContent = msg;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+    if (modalX) modalX.addEventListener('click', closeModal);
+    if (modalOk) modalOk.addEventListener('click', closeModal);
+    if (modal) modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+
+    // ---- Interest form ----
+    const interestForm = $('#interestForm');
+    if (interestForm) {
+        interestForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const data = new FormData(interestForm);
+            fetch(interestForm.action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(res => {
+                if (res.ok) {
+                    openModal(
+                        lang === 'sv' ? 'Tack!' : 'Thank You!',
+                        lang === 'sv' ? 'Ditt meddelande har skickats. Vi återkommer snart.' : 'Your message has been sent. We will get back to you soon.'
+                    );
+                    interestForm.reset();
+                } else {
+                    openModal(
+                        lang === 'sv' ? 'Något gick fel' : 'Something went wrong',
+                        lang === 'sv' ? 'Försök igen eller kontakta oss via e-post.' : 'Please try again or contact us via email.'
+                    );
+                }
+            }).catch(() => {
+                openModal(
+                    lang === 'sv' ? 'Nätverksfel' : 'Network error',
+                    lang === 'sv' ? 'Kontrollera din anslutning och försök igen.' : 'Check your connection and try again.'
+                );
+            });
+        });
+    }
+
+    // ---- Smooth scroll ----
+    $$('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const target = $(a.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
     });
-});
 
-// Add active state to navigation links based on scroll position
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('.section');
-    const navLinks = document.querySelectorAll('.nav-links a');
-
-    let current = '';
-    const navbarHeight = document.querySelector('.navbar').offsetHeight;
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - navbarHeight - 100;
-        const sectionHeight = section.offsetHeight;
-
-        if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
-            current = section.getAttribute('id');
+    // ---- Init ----
+    function boot() {
+        // Detect language
+        try {
+            const stored = localStorage.getItem('sos-lang');
+            if (stored === 'en' || stored === 'sv') {
+                setLang(stored);
+            } else {
+                const bl = (navigator.language || '').toLowerCase();
+                setLang(bl.startsWith('sv') ? 'sv' : 'en');
+            }
+        } catch (_) {
+            setLang('en');
         }
-    });
 
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-});
+        onScroll();
+        initFireCanvas();
+        initReveal();
+        window.addEventListener('scroll', onScroll, { passive: true });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', boot);
+    } else {
+        boot();
+    }
+})();
