@@ -165,8 +165,8 @@
         const els = $$(
             '.section-eyebrow, .section-heading, .section-intro, ' +
             '.about-main, .about-aside, .phase, .member, ' +
-            '.research-block, .research-coming, .presentation-item, ' +
-            '.positions-block, .media-empty'
+            '.interested-block, .research-block, .research-coming, ' +
+            '.presentation-item, .positions-block, .media-empty'
         );
         els.forEach(el => el.classList.add('reveal'));
 
@@ -198,6 +198,38 @@
     if (modalX) modalX.addEventListener('click', closeModal);
     if (modalOk) modalOk.addEventListener('click', closeModal);
     if (modal) modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+
+    // ---- Interest form ----
+    const interestForm = $('#interestForm');
+    if (interestForm) {
+        interestForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const data = new FormData(interestForm);
+            fetch(interestForm.action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(res => {
+                if (res.ok) {
+                    openModal(
+                        lang === 'sv' ? 'Tack!' : 'Thank You!',
+                        lang === 'sv' ? 'Ditt meddelande har skickats. Vi återkommer snart.' : 'Your message has been sent. We will get back to you soon.'
+                    );
+                    interestForm.reset();
+                } else {
+                    openModal(
+                        lang === 'sv' ? 'Något gick fel' : 'Something went wrong',
+                        lang === 'sv' ? 'Försök igen eller kontakta oss via e-post.' : 'Please try again or contact us via email.'
+                    );
+                }
+            }).catch(() => {
+                openModal(
+                    lang === 'sv' ? 'Nätverksfel' : 'Network error',
+                    lang === 'sv' ? 'Kontrollera din anslutning och försök igen.' : 'Check your connection and try again.'
+                );
+            });
+        });
+    }
 
     // ---- Smooth scroll ----
     $$('a[href^="#"]').forEach(a => {
