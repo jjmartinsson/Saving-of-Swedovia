@@ -159,7 +159,8 @@
         const els = $$(
             '.section-eyebrow, .section-heading, .section-intro, ' +
             '.about-main, .about-aside, .phase, .member, ' +
-            '.form-panel, .collab-block, .positions-block, .media-empty'
+            '.research-block, .research-coming, .presentation-item, ' +
+            '.positions-block, .media-empty'
         );
         els.forEach(el => el.classList.add('reveal'));
 
@@ -191,38 +192,6 @@
     if (modalX) modalX.addEventListener('click', closeModal);
     if (modalOk) modalOk.addEventListener('click', closeModal);
     if (modal) modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-
-    // ---- Forms ----
-    const updatesForm = $('#updatesForm');
-    const interviewForm = $('#interviewForm');
-
-    if (updatesForm) {
-        updatesForm.addEventListener('submit', e => {
-            e.preventDefault();
-            const data = Object.fromEntries(new FormData(updatesForm));
-            console.log('Updates signup:', data);
-            const t = lang === 'sv' ? 'Tack!' : 'Thank You!';
-            const m = lang === 'sv'
-                ? 'Du har lagts till på vår lista. Vi håller dig uppdaterad om Saving of Swedovia.'
-                : 'You have been added to our mailing list. We will keep you updated on the progress of Saving of Swedovia.';
-            openModal(t, m);
-            updatesForm.reset();
-        });
-    }
-
-    if (interviewForm) {
-        interviewForm.addEventListener('submit', e => {
-            e.preventDefault();
-            const data = Object.fromEntries(new FormData(interviewForm));
-            console.log('Interview signup:', data);
-            const t = lang === 'sv' ? 'Tack för ditt intresse!' : 'Thank You for Your Interest!';
-            const m = lang === 'sv'
-                ? 'Vi har mottagit din anmälan. En medlem i vårt team kontaktar dig snart för att boka en intervju.'
-                : 'We have received your sign-up. A member of our team will reach out to you soon to schedule an interview.';
-            openModal(t, m);
-            interviewForm.reset();
-        });
-    }
 
     // ---- Smooth scroll ----
     $$('a[href^="#"]').forEach(a => {
