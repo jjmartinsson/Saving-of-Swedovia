@@ -164,9 +164,9 @@
     function initReveal() {
         const els = $$(
             '.section-eyebrow, .section-heading, .section-intro, ' +
-            '.about-main, .about-aside, .phase, .member, ' +
-            '.interested-block, .research-block, .research-coming, ' +
-            '.presentation-item, .positions-block, .media-empty'
+            '.about-content, .research-questions, .member, ' +
+            '.research-block, .research-coming, ' +
+            '.presentation-item, .positions-block, .contact-form-wrap'
         );
         els.forEach(el => el.classList.add('reveal'));
 
@@ -199,37 +199,9 @@
     if (modalOk) modalOk.addEventListener('click', closeModal);
     if (modal) modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
 
-    // ---- Interest form ----
-    const interestForm = $('#interestForm');
-    if (interestForm) {
-        interestForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            const data = new FormData(interestForm);
-            fetch(interestForm.action, {
-                method: 'POST',
-                body: data,
-                headers: { 'Accept': 'application/json' }
-            }).then(res => {
-                if (res.ok) {
-                    openModal(
-                        lang === 'sv' ? 'Tack!' : 'Thank You!',
-                        lang === 'sv' ? 'Ditt meddelande har skickats. Vi återkommer snart.' : 'Your message has been sent. We will get back to you soon.'
-                    );
-                    interestForm.reset();
-                } else {
-                    openModal(
-                        lang === 'sv' ? 'Något gick fel' : 'Something went wrong',
-                        lang === 'sv' ? 'Försök igen eller kontakta oss via e-post.' : 'Please try again or contact us via email.'
-                    );
-                }
-            }).catch(() => {
-                openModal(
-                    lang === 'sv' ? 'Nätverksfel' : 'Network error',
-                    lang === 'sv' ? 'Kontrollera din anslutning och försök igen.' : 'Check your connection and try again.'
-                );
-            });
-        });
-    }
+    // ---- Contact form (formsubmit.co handles the POST natively) ----
+    // The form submits directly to formsubmit.co which emails Joel.martinsson@lnu.se
+    // On first use, formsubmit.co will send a confirmation email to activate the endpoint.
 
     // ---- Smooth scroll ----
     $$('a[href^="#"]').forEach(a => {
