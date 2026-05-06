@@ -348,7 +348,7 @@ input,select,textarea{font-family:var(--font-ui)}
    TEAM
    ============================================= */
 .team-row{
-    display:flex;justify-content:center;gap:2.5rem;
+    display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;
     max-width:720px;margin:0 auto;
 }
 .member{
