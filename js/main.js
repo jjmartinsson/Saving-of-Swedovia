@@ -199,9 +199,48 @@
     if (modalOk) modalOk.addEventListener('click', closeModal);
     if (modal) modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
 
-    // ---- Contact form (formsubmit.co handles the POST natively) ----
-    // The form submits directly to formsubmit.co which emails Joel.martinsson@lnu.se
-    // On first use, formsubmit.co will send a confirmation email to activate the endpoint.
+    // ---- Contact form ----
+    const contactForm = $('#contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = contactForm.querySelector('button[type="submit"]');
+            const origText = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = lang === 'sv' ? 'Skickar...' : 'Sending...';
+
+            fetch(contactForm.action, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(Object.fromEntries(new FormData(contactForm)))
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) {
+                    openModal(
+                        lang === 'sv' ? 'Tack!' : 'Thank you!',
+                        lang === 'sv' ? 'Ditt meddelande har skickats.' : 'Your message has been sent.'
+                    );
+                    contactForm.reset();
+                } else {
+                    openModal(
+                        lang === 'sv' ? 'Fel' : 'Error',
+                        lang === 'sv' ? 'Något gick fel. Försök igen senare.' : 'Something went wrong. Please try again later.'
+                    );
+                }
+            })
+            .catch(() => {
+                openModal(
+                    lang === 'sv' ? 'Fel' : 'Error',
+                    lang === 'sv' ? 'Kunde inte skicka meddelandet. Försök igen senare.' : 'Could not send the message. Please try again later.'
+                );
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.textContent = origText;
+            });
+        });
+    }
 
     // ---- Smooth scroll ----
     $$('a[href^="#"]').forEach(a => {
