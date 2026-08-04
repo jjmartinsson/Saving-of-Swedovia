@@ -390,6 +390,11 @@ a.member{text-decoration:none}
 .research-block p{font-size:.92rem;color:var(--text-2);margin-bottom:.75rem;line-height:1.7}
 
 /* Presentations grid */
+.pres-section-label{
+    font-family:var(--font-ui);font-size:.75rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:.1em;
+    color:var(--text-2);margin:1.75rem 0 .75rem;
+}
 .presentations-grid{display:flex;flex-direction:column;gap:1rem}
 .presentation-item{
     display:flex;align-items:flex-start;gap:1.2rem;
