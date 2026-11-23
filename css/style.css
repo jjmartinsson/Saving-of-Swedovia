@@ -804,10 +804,6 @@ a.position-item:hover .position-cta{color:var(--text)}
 .sos-game-placeholder-title{font-family:var(--font-display);font-size:1.15rem;font-weight:600;color:#fff}
 .sos-placeholder-note{font-family:var(--font-ui);font-size:.75rem;color:rgba(255,255,255,.5);font-style:italic}
 .sos-placeholder-note--dark{color:var(--text-3)}
-.sos-facts{
-    text-align:center;margin-top:1.6rem;
-    font-family:var(--font-ui);font-size:.85rem;color:rgba(255,255,255,.65);letter-spacing:.01em;
-}
 
 /* About: presentations under the timeline */
 .sos-presentations{margin-top:4rem}
@@ -875,4 +871,69 @@ a.position-item:hover .position-cta{color:var(--text)}
     .sos-edu-blocks{grid-template-columns:1fr;gap:1.5rem}
     .sos-row{grid-template-columns:1fr;gap:.6rem}
     .sos-bar-row{grid-template-columns:1fr;gap:.35rem}
+}
+
+/* Front page: three parts */
+.sos-hero-content{max-width:1080px}
+.sos-hero-desc{margin-bottom:2.6rem}
+.sos-hero-cols{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    text-align:left;border-top:1px solid rgba(255,255,255,.18);
+}
+.sos-hero-col{padding:1.6rem 1.6rem .4rem;border-left:1px solid rgba(255,255,255,.12)}
+.sos-hero-col:first-child{border-left:none;padding-left:0}
+.sos-hero-col:last-child{padding-right:0}
+.sos-hero-col h2{font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:#fff;margin-bottom:.55rem}
+.sos-hero-col p{font-size:.88rem;line-height:1.7;color:rgba(255,255,255,.72);margin-bottom:1.1rem}
+.sos-hero-col--game h2{color:var(--gold-light)}
+.sos-hero-links{display:flex;gap:1.4rem;flex-wrap:wrap}
+.sos-hero-link{font-family:var(--font-ui);font-size:.86rem;font-weight:600;color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:2px}
+.sos-hero-link:hover{border-color:#fff}
+
+/* The game */
+.sos-play-note{text-align:center;margin-top:1.4rem;font-size:.85rem;color:rgba(255,255,255,.55)}
+
+/* How it was made (past tense, no markers) */
+.sos-made{margin-top:3.5rem}
+.sos-made-list{
+    list-style:none;padding:0;margin:1.8rem 0 0;
+    display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem;
+}
+.sos-made-step{border-top:2px solid var(--gold);padding-top:1rem}
+.sos-made-num{font-family:var(--font-ui);font-size:.72rem;font-weight:700;letter-spacing:.1em;color:var(--gold)}
+.sos-made-step h4{font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--text);margin:.3rem 0 .4rem}
+.sos-made-step p{font-size:.85rem;line-height:1.65;color:var(--text-2)}
+
+/* Education: free strip */
+.sos-free-strip{
+    list-style:none;padding:0;margin:0 0 2rem;
+    display:flex;flex-wrap:wrap;justify-content:center;
+    border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+}
+.sos-free-strip li{
+    font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--text);
+    padding:1rem 1.5rem;position:relative;
+}
+.sos-free-strip li+li::before{
+    content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);
+    width:1px;height:1.2rem;background:var(--border);
+}
+
+/* Presentations + news side by side */
+.sos-split{display:grid;grid-template-columns:3fr 2fr;gap:3.5rem;align-items:start}
+.sos-split-heading{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:.5rem}
+.sos-split .sos-presentations{margin-top:0}
+.sos-split .research-block{max-width:none}
+.sos-split .news-grid{grid-template-columns:1fr;margin-top:1.75rem}
+
+@media(max-width:900px){
+    .sos-made-list{grid-template-columns:1fr 1fr}
+    .sos-split{grid-template-columns:1fr;gap:3rem}
+}
+@media(max-width:760px){
+    .sos-hero-cols{grid-template-columns:1fr}
+    .sos-hero-col,.sos-hero-col:first-child{border-left:none;padding:1.3rem 0 .4rem;border-top:1px solid rgba(255,255,255,.12)}
+    .sos-hero-col:first-child{border-top:none}
+    .sos-made-list{grid-template-columns:1fr}
+    .sos-free-strip li{padding:.7rem 1rem}
 }
