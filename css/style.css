@@ -1064,23 +1064,6 @@ a.position-item:hover .position-cta{color:var(--text)}
 }
 
 /* ---- From real experiences to a game (process) ---- */
-.sos-process{margin-top:4rem;display:grid;grid-template-columns:1fr 1.6fr;gap:3.5rem;align-items:start}
-.sos-process-intro .phases-heading{text-align:left;font-size:1.6rem;line-height:1.25;margin-bottom:1rem}
-.sos-process-intro p{font-family:'Spectral',Georgia,serif;font-style:italic;font-size:1.15rem;line-height:1.7;color:var(--text-2)}
-.sos-process-path{list-style:none;margin:0;padding:0 0 0 2.2rem;position:relative}
-.sos-process-path::before{
-    content:"";position:absolute;left:.55rem;top:.6rem;bottom:.6rem;
-    border-left:2px dashed rgba(162,74,34,.45);
-}
-.sos-process-step{position:relative;padding-bottom:2rem}
-.sos-process-step:last-child{padding-bottom:0}
-.sos-process-step::before{
-    content:"";position:absolute;left:-2.2rem;top:.35rem;width:14px;height:14px;border-radius:50%;
-    background:var(--bg);border:3px solid var(--accent);
-}
-.sos-process-step:last-child::before{background:var(--accent)}
-.sos-process-step h4{font-family:var(--font-display);font-size:1.2rem;color:var(--text);margin-bottom:.35rem}
-.sos-process-step p{font-size:.95rem;line-height:1.75;color:var(--text-2)}
 .sos-process-link{display:inline-block;margin-top:.5rem;font-size:.88rem;font-weight:600;color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(162,74,34,.4)}
 .sos-process-link:hover{border-color:var(--accent)}
 
@@ -1100,7 +1083,7 @@ a.position-item:hover .position-cta{color:var(--text)}
 .sos-home .news-card--bth:hover .news-arrow{color:#4b5a36}
 
 @media(max-width:900px){
-    .sos-process,.sos-data-layout{grid-template-columns:1fr;gap:2rem}
+    .sos-data-layout{grid-template-columns:1fr;gap:2rem}
 }
 
 /* Inside the game: picture on top, four roles in a row */
@@ -1158,4 +1141,67 @@ a.position-item:hover .position-cta{color:var(--text)}
     aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;
     background:repeating-linear-gradient(45deg,#ebe2d0 0 10px,#e4dac6 10px 20px);
     border:1px dashed rgba(43,37,32,.45);color:rgba(43,37,32,.5);font-family:var(--font-display);
+}
+
+/* ---- From real experiences to a game: the loop ---- */
+.sos-loop{margin-top:4rem;text-align:center}
+.sos-loop-intro{font-family:'Spectral',Georgia,serif;font-style:italic;font-size:1.1rem;color:var(--text-2);max-width:640px;margin:.2rem auto 2rem}
+.sos-loop-flow{display:grid;grid-template-columns:1fr 3.2fr 1fr;gap:1.4rem;align-items:center;text-align:left}
+.sos-loop-step{position:relative;padding:.2rem .2rem}
+.sos-loop-n{
+    display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;
+    border:2px solid var(--accent);color:var(--accent);font-family:var(--font-display);font-size:.9rem;margin-bottom:.45rem;background:var(--bg);
+}
+.sos-loop-step--done .sos-loop-n{background:var(--accent);color:var(--cream)}
+.sos-loop-step h4{font-family:var(--font-display);font-size:1.05rem;color:var(--text);margin-bottom:.25rem}
+.sos-loop-step p{font-size:.84rem;line-height:1.55;color:var(--text-2)}
+.sos-loop-flow>.sos-loop-step:first-child::after,
+.sos-loop-cycle::after{
+    content:"→";position:absolute;right:-1.15rem;top:50%;transform:translateY(-50%);
+    font-size:1.2rem;color:var(--accent);
+}
+.sos-loop-cycle{
+    position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;
+    border:2px dashed rgba(162,74,34,.5);border-radius:18px;padding:2.1rem 1.2rem 1.2rem;
+}
+.sos-loop-cycle .sos-loop-step:not(:last-of-type)::after{
+    content:"→";position:absolute;right:-.95rem;top:.25rem;font-size:1.1rem;color:var(--accent);
+}
+.sos-loop-tag{
+    position:absolute;top:-.85rem;left:50%;transform:translateX(-50%);white-space:nowrap;
+    background:var(--bg);padding:.1rem .8rem;font-family:var(--font-display);font-size:.92rem;color:var(--accent);
+}
+.sos-loop-fork{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2.4rem;text-align:left;position:relative}
+.sos-loop-fork::before{
+    content:"↙  ↘";position:absolute;left:50%;top:-1.9rem;transform:translateX(-50%);
+    font-size:1.3rem;letter-spacing:.6rem;color:var(--accent);
+}
+.sos-loop-out{padding:1.2rem 1.4rem 1.3rem}
+.sos-loop-out p{font-size:.92rem;line-height:1.7;color:var(--text-2);margin-bottom:.4rem}
+.sos-loop-note{margin-top:1.6rem;font-size:.9rem;font-style:italic;color:var(--text-3)}
+.sos-loop-note a{color:var(--accent);font-style:normal;font-weight:600}
+
+/* ---- Data in the game's style: paper chart on a dark desk ---- */
+.sos-data-desk{background:radial-gradient(ellipse 80% 70% at 60% 40%,#2e2822 0%,#1d1915 70%)}
+.sos-home #data .sos-chart{
+    background:#efe6d2;color:#2b2520;border:1px solid #2b2520;border-radius:3px;
+    box-shadow:0 0 0 5px #efe6d2,0 0 0 6px rgba(0,0,0,.45),0 24px 44px rgba(0,0,0,.45);
+}
+.sos-home #data .sos-chart-q{color:#2b2520}
+.sos-home #data .sos-chart-legend{color:#5a5046}
+.sos-home #data .sos-key--a::before,.sos-home #data .sos-bar--a{background:#4b5a36}
+.sos-home #data .sos-key--b::before,.sos-home #data .sos-bar--b{background:#c27a2c}
+.sos-home #data .sos-bar{color:#f3ecdd;border:1px solid #2b2520;border-radius:1px;height:18px;line-height:16px}
+.sos-home #data .sos-bar-label{color:#2b2520}
+.sos-home #data .sos-chart-foot{border-top:1px dashed rgba(43,37,32,.35)}
+.sos-home #data .sos-placeholder-note--dark{color:#7a6f62}
+.sos-home #data .sos-chart-link{color:#a24a22}
+
+@media(max-width:900px){
+    .sos-loop-flow{grid-template-columns:1fr}
+    .sos-loop-flow>.sos-loop-step:first-child::after,.sos-loop-cycle::after{content:"↓";right:auto;left:1rem;top:auto;bottom:-1.4rem;transform:none}
+    .sos-loop-cycle{grid-template-columns:1fr;margin:.8rem 0}
+    .sos-loop-cycle .sos-loop-step:not(:last-of-type)::after{content:"↓";right:auto;left:.4rem;top:auto;bottom:-1.1rem}
+    .sos-loop-fork{grid-template-columns:1fr}
+    .sos-loop-fork::before{content:"↓";letter-spacing:0}
 }
