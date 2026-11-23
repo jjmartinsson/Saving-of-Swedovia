@@ -793,7 +793,7 @@ a.position-item:hover .position-cta{color:var(--text)}
 .sos-game-placeholder{
     width:100%;height:100%;
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;
-    background:linear-gradient(180deg,rgba(13,17,23,.5),rgba(13,17,23,.85)),url('../images/SOS_NEW.png') center/cover no-repeat;
+    background:linear-gradient(180deg,rgba(13,17,23,.35),rgba(13,17,23,.8)),url('../images/game-forest.webp') center/cover no-repeat;
     text-align:center;padding:1rem;
 }
 .sos-game-playicon{
@@ -936,4 +936,88 @@ a.position-item:hover .position-cta{color:var(--text)}
     .sos-hero-col:first-child{border-top:none}
     .sos-made-list{grid-template-columns:1fr}
     .sos-free-strip li{padding:.7rem 1rem}
+}
+
+/* =============================================
+   GAME-INSPIRED LOOK — scoped to the homepage only (body.sos-home),
+   so the /game and /graphs pages are not affected.
+   ============================================= */
+.sos-home{
+    --font-display:'Special Elite','Courier New',monospace;
+    --bg:#f4eee2;          /* paper */
+    --bg-alt:#ebe2d0;      /* darker paper */
+    --surface:#f8f3e8;     /* card paper */
+    --text:#2b2520;        /* ink */
+    --text-2:#5a5046;
+    --text-3:#8a7e70;
+    --border:#d8cab1;
+    --accent:#a24a22;      /* rust, like the game's orange */
+    --olive:#55663a;       /* game green */
+    background:var(--bg);
+}
+.sos-home h1,.sos-home h2,.sos-home h3,.sos-home h4{font-weight:400}
+.sos-home .hero h1{letter-spacing:.01em}
+.sos-home .section-heading{letter-spacing:0}
+.sos-home .section-eyebrow{color:var(--accent)}
+.sos-home .section-dark .section-eyebrow.light{color:var(--gold-light)}
+.sos-home .phases-heading{font-size:1.3rem;color:var(--text)}
+.sos-home .about-content .lead{font-weight:400}
+.sos-home .about-content a,.sos-home .team-contact a{color:var(--accent)}
+
+/* Paper card, like the cards in the game */
+.sos-paper{
+    background:var(--surface);
+    border:1px solid rgba(43,37,32,.55);
+    border-radius:3px;
+    box-shadow:0 0 0 4px var(--surface),0 0 0 5px rgba(43,37,32,.18),0 12px 26px rgba(43,37,32,.12);
+}
+
+/* Inside the game */
+.sos-inside{margin-top:3.5rem}
+.sos-inside-grid{display:grid;grid-template-columns:3fr 2fr;gap:2.25rem;margin-top:1.8rem;align-items:start}
+.sos-shot{margin:0;padding:.6rem .6rem .8rem}
+.sos-shot img{display:block;width:100%;height:auto;border:1px solid rgba(43,37,32,.35)}
+.sos-shot figcaption{font-size:.84rem;line-height:1.6;color:var(--text-2);padding:.7rem .3rem 0}
+.sos-roles{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+.sos-role{margin:0;padding:.5rem}
+.sos-role img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;object-position:top;border:1px solid rgba(43,37,32,.35)}
+.sos-role figcaption{text-align:center;padding:.6rem 0 .2rem}
+.sos-role-name{display:block;font-family:var(--font-display);font-size:1.1rem;color:var(--text)}
+.sos-role-title{display:block;font-family:var(--font-display);font-size:.78rem;color:var(--text-3)}
+.sos-roles-text{grid-column:1/-1;font-size:.88rem;line-height:1.65;color:var(--text-2)}
+
+/* How it was made: paper cards */
+.sos-home .sos-made-step{
+    background:var(--surface);border:1px solid rgba(43,37,32,.55);border-top:4px solid var(--accent);
+    border-radius:3px;padding:1.1rem 1rem 1.2rem;
+    box-shadow:0 10px 22px rgba(43,37,32,.08);
+}
+.sos-home .sos-made-num{color:var(--accent);font-family:var(--font-display);letter-spacing:.05em}
+.sos-home .sos-made-step h4{font-size:1.08rem}
+
+/* Education */
+.sos-edu-intro{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;max-width:1040px;margin:0 auto}
+.sos-home #education .sos-free-strip,.sos-home #education .sos-edu-blocks,.sos-home #education .sos-edu-more{max-width:1040px;margin-left:auto;margin-right:auto}
+.sos-home .sos-free-strip{border-color:rgba(43,37,32,.35)}
+.sos-home .sos-free-strip li{font-size:1.05rem}
+.sos-home .sos-edu-blocks{border-top-color:rgba(43,37,32,.25)}
+.sos-home .sos-edu-block h3{font-size:1.3rem}
+.sos-home .sos-link-download{border-color:var(--accent);color:var(--accent)}
+.sos-home .sos-link-download:hover{background:var(--accent)}
+
+/* Research */
+.sos-home .sos-row-label{font-size:1.3rem}
+.sos-home .sos-row,.sos-home .sos-row:last-child{border-color:rgba(43,37,32,.2)}
+
+/* Presentations as paper cards */
+.sos-home .presentation-item{
+    background:var(--surface);border:1px solid rgba(43,37,32,.4);border-radius:3px;box-shadow:none;
+}
+.sos-home .presentation-date{background:var(--night)}
+.sos-home .pres-time{color:var(--accent)}
+.sos-home .sos-split-heading{font-size:1.7rem}
+.sos-home .news-card{border-radius:3px;border-color:rgba(43,37,32,.4);background:var(--surface)}
+
+@media(max-width:900px){
+    .sos-inside-grid,.sos-edu-intro{grid-template-columns:1fr}
 }

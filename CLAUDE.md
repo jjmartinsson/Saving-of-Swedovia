@@ -92,6 +92,8 @@ Joel wants a new homepage design where the game and graphs are more visible. Wor
 4. Give the full handoff checklist (backup → download → upload one file at a time → check homepage, `/game`, `/graphs`), and tell him to also check that the game appears on the homepage itself. If it doesn't, restore the backup `index.html`.
 5. Never change `build/`, `backend/`, `pages/`, `.htaccess` or Henrik's files to make this work.
 6. The new design adds a `downloads/` folder (educator guide PDF `downloads/saving-of-swedovia-educator-guide.pdf`). In the handoff, tell Joel to create a `downloads` folder at the top level on One.com and upload the PDF into it (new folder, nothing to back up).
+6b. New images used by the design must also be uploaded to One.com's `images/` folder: `game-ethos.webp`, `game-patrols.webp`, `game-forest.webp`, `game-oskar.webp`, `game-ake.webp` (cut from Joel's screenshots; swap for clean originals if Joel provides them).
+6c. The game-inspired look (paper colours, 'Special Elite' typewriter headings, paper cards) is scoped to `<body class="sos-home">` in `style.css`, so `/game` and `/graphs` are unaffected. Keep new homepage styling inside `.sos-home` / `sos-` classes.
 7. Placeholders to replace are marked in `index.html` with `<!-- STAGE 2: ... -->` comments (game frame in `#play`; the example chart, its "Example – not real data" note and the "Open the data explorer" link in the Data row `#data` inside `#research`). The example chart should become a clear link/card to `/graphs` (no fake numbers).
 
 Section IDs `home`, `about`, `team`, `research`, `news` must always exist in `index.html`: Henrik's `/game` and `/graphs` pages link to `/#home`, `/#about`, `/#team`, `/#research`, `/#news`.
