@@ -765,3 +765,178 @@ a.position-item:hover .position-cta{color:var(--text)}
     .hero-buttons{flex-direction:column;align-items:center}
     .hero-buttons .btn{width:100%;max-width:260px}
 }
+
+/* =============================================
+   NEW HOMEPAGE (2026-11) — homepage-only classes, prefixed "sos-"
+   ============================================= */
+
+/* Hero additions */
+.sos-hero-buttons{margin-bottom:1.4rem}
+.sos-btn-play{display:inline-flex;align-items:center;gap:.5rem;font-size:.9rem;padding:.85rem 2rem}
+.sos-hero-note{
+    font-family:var(--font-ui);font-size:.75rem;font-weight:500;letter-spacing:.08em;
+    color:rgba(255,255,255,.7);
+}
+
+/* Intro text on dark sections */
+.sos-intro-light{color:rgba(255,255,255,.6)}
+
+/* Play section */
+.sos-play{padding-top:4.5rem}
+.sos-game-frame{
+    max-width:960px;margin:0 auto;aspect-ratio:16/9;
+    border-radius:14px;overflow:hidden;
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 24px 60px rgba(0,0,0,.45);
+    background:#000;
+}
+.sos-game-frame iframe{width:100%;height:100%;border:0;display:block}
+.sos-game-placeholder{
+    width:100%;height:100%;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;
+    background:linear-gradient(180deg,rgba(13,17,23,.55),rgba(13,17,23,.85)),url('../images/SOS_NEW.png') center/cover no-repeat;
+    text-align:center;padding:1rem;
+}
+.sos-game-playicon{
+    width:76px;height:76px;border-radius:50%;
+    background:var(--gold);color:var(--night);
+    display:flex;align-items:center;justify-content:center;padding-left:4px;
+    box-shadow:0 0 0 10px rgba(201,150,60,.18);
+}
+.sos-game-placeholder-title{font-family:var(--font-display);font-size:1.2rem;font-weight:600;color:#fff}
+.sos-preview-label{
+    display:inline-block;font-family:var(--font-ui);font-size:.68rem;font-weight:600;
+    letter-spacing:.1em;text-transform:uppercase;
+    color:var(--gold-light);border:1px dashed rgba(221,181,101,.6);
+    border-radius:999px;padding:.3rem .8rem;
+}
+.sos-features{
+    list-style:none;max-width:960px;margin:2rem auto 0;padding:0;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;
+}
+.sos-features li{
+    display:flex;align-items:center;gap:.7rem;
+    background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+    border-radius:10px;padding:.9rem 1rem;
+    font-family:var(--font-ui);font-size:.82rem;font-weight:500;color:rgba(255,255,255,.85);
+}
+.sos-features svg{flex-shrink:0;color:var(--gold-light)}
+
+/* How it was made */
+.sos-steps{
+    list-style:none;padding:0;margin:0 auto;max-width:1040px;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;
+    counter-reset:none;
+}
+.sos-step{
+    position:relative;background:var(--surface);border:1px solid var(--border);
+    border-radius:14px;padding:1.6rem 1.4rem 1.4rem;
+}
+.sos-step-icon{
+    width:44px;height:44px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--bg-alt);color:var(--accent);margin-bottom:1rem;
+}
+.sos-step--done .sos-step-icon{background:rgba(201,150,60,.14);color:var(--gold)}
+.sos-step--upcoming{border-style:dashed}
+.sos-step-num{
+    position:absolute;top:1.3rem;right:1.4rem;
+    font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--border);
+}
+.sos-step-date{
+    display:inline-block;margin-bottom:.4rem;
+    font-family:var(--font-ui);font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--night);background:var(--gold-pale);border-radius:999px;padding:.2rem .65rem;
+}
+.sos-step h3{font-family:var(--font-display);font-size:1.05rem;font-weight:600;margin-bottom:.4rem;color:var(--text)}
+.sos-step p{font-size:.88rem;line-height:1.65;color:var(--text-2)}
+
+/* Education */
+.sos-edu-steps{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;
+    max-width:960px;margin:0 auto 2.5rem;
+}
+.sos-edu-step{text-align:center;padding:0 .5rem}
+.sos-edu-num{
+    width:40px;height:40px;border-radius:50%;margin:0 auto .8rem;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-display);font-weight:700;color:var(--night);background:var(--gold-pale);
+}
+.sos-edu-step h3{font-family:var(--font-display);font-size:1.05rem;font-weight:600;margin-bottom:.3rem;color:var(--text)}
+.sos-edu-step p{font-size:.88rem;line-height:1.65;color:var(--text-2)}
+.sos-edu-cards{
+    display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:960px;margin:0 auto;
+}
+.sos-edu-card{
+    border-radius:16px;padding:2rem;border:1px solid var(--border);background:var(--surface);
+    display:flex;flex-direction:column;align-items:flex-start;
+}
+.sos-edu-card--guide{background:var(--night);border-color:var(--night);color:#fff}
+.sos-edu-card--workshop{background:var(--gold-pale);border-color:rgba(201,150,60,.4)}
+.sos-edu-card-eyebrow{
+    font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:.5rem;
+}
+.sos-edu-card--workshop .sos-edu-card-eyebrow{color:#8a5f17}
+.sos-edu-card h3{font-family:var(--font-display);font-size:1.3rem;font-weight:700;margin-bottom:.6rem}
+.sos-edu-card p{font-size:.9rem;line-height:1.7;margin-bottom:1rem}
+.sos-edu-card--guide p{color:rgba(255,255,255,.7)}
+.sos-edu-card--workshop p{color:var(--text)}
+.sos-edu-card--workshop a{color:#8a5f17;font-weight:600}
+.sos-btn-download{display:inline-flex;align-items:center;gap:.5rem;margin-top:auto}
+.sos-tags{list-style:none;padding:0;margin:0 0 1rem;display:flex;flex-wrap:wrap;gap:.5rem}
+.sos-tags li{
+    font-family:var(--font-ui);font-size:.78rem;font-weight:600;
+    background:#fff;border:1px solid rgba(201,150,60,.45);color:var(--text);
+    border-radius:999px;padding:.35rem .8rem;
+}
+.sos-edu-more{text-align:center;margin-top:2.25rem;font-size:.95rem;color:var(--text-2)}
+.sos-edu-more a{color:var(--accent);font-weight:600}
+
+/* Explore the data */
+.sos-data-preview{
+    max-width:960px;margin:0 auto;display:grid;grid-template-columns:240px 1fr;gap:1rem;
+}
+.sos-data-side,.sos-data-main{
+    background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:1.25rem;
+}
+.sos-data-side-title{font-family:var(--font-display);font-size:1rem;font-weight:600;color:#fff;margin-bottom:.6rem}
+.sos-data-side-title--2{margin-top:1.2rem}
+.sos-data-select{
+    font-family:var(--font-ui);font-size:.78rem;color:rgba(255,255,255,.8);
+    background:rgba(255,255,255,.06);border-radius:6px;padding:.5rem .7rem;margin-bottom:.45rem;
+}
+.sos-data-main{display:flex;flex-direction:column;align-items:center;text-align:center;gap:1rem}
+.sos-data-q{font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:#fff}
+.sos-data-pies{display:flex;gap:2rem;flex-wrap:wrap;justify-content:center}
+.sos-data-actions{text-align:center;margin:2rem 0 2.5rem}
+.sos-data-uses{
+    max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;
+}
+.sos-data-uses h3{font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--gold-light);margin-bottom:.3rem}
+.sos-data-uses p{font-size:.88rem;line-height:1.65;color:rgba(255,255,255,.65)}
+
+/* Research */
+.sos-research-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:960px;margin:0 auto}
+.sos-research-card{
+    background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem;
+}
+.sos-research-icon{
+    width:48px;height:48px;border-radius:12px;background:var(--bg-alt);color:var(--accent);
+    display:flex;align-items:center;justify-content:center;margin-bottom:1rem;
+}
+.sos-research-card h3{font-family:var(--font-display);font-size:1.15rem;font-weight:600;margin-bottom:.5rem;color:var(--text)}
+.sos-research-card p{font-size:.9rem;line-height:1.7;color:var(--text-2)}
+.sos-research-card a{color:var(--accent);font-weight:600}
+.sos-research-empty{font-style:italic;color:var(--text-3)!important}
+
+/* Responsive */
+@media(max-width:900px){
+    .sos-features{grid-template-columns:1fr 1fr}
+    .sos-steps{grid-template-columns:1fr 1fr}
+}
+@media(max-width:700px){
+    .sos-steps,.sos-edu-steps,.sos-edu-cards,.sos-data-uses,.sos-research-grid,.sos-data-preview{grid-template-columns:1fr}
+    .sos-features{grid-template-columns:1fr}
+    .sos-edu-card{padding:1.5rem}
+}
