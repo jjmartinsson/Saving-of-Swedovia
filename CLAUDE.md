@@ -92,7 +92,7 @@ Joel wants a new homepage design where the game and graphs are more visible. Wor
 4. Give the full handoff checklist (backup → download → upload one file at a time → check homepage, `/game`, `/graphs`), and tell him to also check that the game appears on the homepage itself. If it doesn't, restore the backup `index.html`.
 5. Never change `build/`, `backend/`, `pages/`, `.htaccess` or Henrik's files to make this work.
 6. The new design adds a `downloads/` folder (educator guide PDF `downloads/saving-of-swedovia-educator-guide.pdf`). In the handoff, tell Joel to create a `downloads` folder at the top level on One.com and upload the PDF into it (new folder, nothing to back up).
-7. Placeholders to replace are marked in `index.html` with `<!-- STAGE 2: ... -->` comments (game frame in `#play`; example chart, "Example" label and the "Open the data explorer" button in `#data`).
+7. Placeholders to replace are marked in `index.html` with `<!-- STAGE 2: ... -->` comments (game frame in `#play`; the example chart, its "Example – not real data" note and the "Open the data explorer" link in the Data row `#data` inside `#research`). The example chart should become a clear link/card to `/graphs` (no fake numbers).
 
 Section IDs `home`, `about`, `team`, `research`, `news` must always exist in `index.html`: Henrik's `/game` and `/graphs` pages link to `/#home`, `/#about`, `/#team`, `/#research`, `/#news`.
 
