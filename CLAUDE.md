@@ -110,5 +110,7 @@ These were made by Joel himself on One.com, not through this repo. If something 
 
 ## Content conventions
 
+- Whenever `css/style.css` or `js/main.js` changes, bump the `?v=N` number on their links in `index.html` (otherwise browsers show the new page with old cached styles and it looks broken).
+
 - Every visible text needs `data-en` and `data-sv` attributes.
 - Make small, targeted changes. Never redesign the whole site unless asked.
