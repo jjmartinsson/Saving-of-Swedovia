@@ -871,16 +871,6 @@ a.position-item:hover .position-cta{color:var(--text)}
 /* The game */
 .sos-play-note{text-align:center;margin-top:1.4rem;font-size:.85rem;color:rgba(255,255,255,.55)}
 
-/* How it was made (past tense, no markers) */
-.sos-made{margin-top:3.5rem}
-.sos-made-list{
-    list-style:none;padding:0;margin:1.8rem 0 0;
-    display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem;
-}
-.sos-made-step{border-top:2px solid var(--gold);padding-top:1rem}
-.sos-made-num{font-family:var(--font-ui);font-size:.72rem;font-weight:700;letter-spacing:.1em;color:var(--gold)}
-.sos-made-step h4{font-family:var(--font-display);font-size:1rem;font-weight:600;color:var(--text);margin:.3rem 0 .4rem}
-.sos-made-step p{font-size:.85rem;line-height:1.65;color:var(--text-2)}
 
 /* Education: free strip */
 .sos-free-strip{
@@ -905,12 +895,10 @@ a.position-item:hover .position-cta{color:var(--text)}
 .sos-split .news-grid{grid-template-columns:1fr;margin-top:1.75rem}
 
 @media(max-width:900px){
-    .sos-made-list{grid-template-columns:1fr 1fr}
-    .sos-split{grid-template-columns:1fr;gap:3rem}
+        .sos-split{grid-template-columns:1fr;gap:3rem}
 }
 @media(max-width:760px){
-                .sos-made-list{grid-template-columns:1fr}
-    .sos-free-strip li{padding:.7rem 1rem}
+                    .sos-free-strip li{padding:.7rem 1rem}
 }
 
 /* =============================================
@@ -962,13 +950,6 @@ a.position-item:hover .position-cta{color:var(--text)}
 .sos-roles-text{grid-column:1/-1;font-size:.88rem;line-height:1.65;color:var(--text-2)}
 
 /* How it was made: paper cards */
-.sos-home .sos-made-step{
-    background:var(--surface);border:1px solid rgba(43,37,32,.55);border-top:4px solid var(--accent);
-    border-radius:3px;padding:1.1rem 1rem 1.2rem;
-    box-shadow:0 10px 22px rgba(43,37,32,.08);
-}
-.sos-home .sos-made-num{color:var(--accent);font-family:var(--font-display);letter-spacing:.05em}
-.sos-home .sos-made-step h4{font-size:1.08rem}
 
 /* Education */
 .sos-edu-intro{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;max-width:1040px;margin:0 auto}
@@ -1073,3 +1054,58 @@ a.position-item:hover .position-cta{color:var(--text)}
 @media(max-width:900px){
     .sos-hero-inner{grid-template-columns:1fr;gap:2.5rem}
 }
+
+/* ---- Roles: placeholder cards ---- */
+.sos-role-ph{
+    aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;
+    background:repeating-linear-gradient(45deg,#ebe2d0 0 10px,#e4dac6 10px 20px);
+    border:1px dashed rgba(43,37,32,.45);color:rgba(43,37,32,.45);
+    font-family:var(--font-display);font-size:.8rem;
+}
+
+/* ---- From real experiences to a game (process) ---- */
+.sos-process{margin-top:4rem;display:grid;grid-template-columns:1fr 1.6fr;gap:3.5rem;align-items:start}
+.sos-process-intro .phases-heading{text-align:left;font-size:1.6rem;line-height:1.25;margin-bottom:1rem}
+.sos-process-intro p{font-family:'Spectral',Georgia,serif;font-style:italic;font-size:1.15rem;line-height:1.7;color:var(--text-2)}
+.sos-process-path{list-style:none;margin:0;padding:0 0 0 2.2rem;position:relative}
+.sos-process-path::before{
+    content:"";position:absolute;left:.55rem;top:.6rem;bottom:.6rem;
+    border-left:2px dashed rgba(162,74,34,.45);
+}
+.sos-process-step{position:relative;padding-bottom:2rem}
+.sos-process-step:last-child{padding-bottom:0}
+.sos-process-step::before{
+    content:"";position:absolute;left:-2.2rem;top:.35rem;width:14px;height:14px;border-radius:50%;
+    background:var(--bg);border:3px solid var(--accent);
+}
+.sos-process-step:last-child::before{background:var(--accent)}
+.sos-process-step h4{font-family:var(--font-display);font-size:1.2rem;color:var(--text);margin-bottom:.35rem}
+.sos-process-step p{font-size:.95rem;line-height:1.75;color:var(--text-2)}
+.sos-process-link{display:inline-block;margin-top:.5rem;font-size:.88rem;font-weight:600;color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(162,74,34,.4)}
+.sos-process-link:hover{border-color:var(--accent)}
+
+/* ---- Data section ---- */
+.sos-data-layout{display:grid;grid-template-columns:1fr 1.25fr;gap:3rem;align-items:center;max-width:1080px;margin:2rem auto 0}
+.sos-data-text h3{font-family:var(--font-display);font-size:1.3rem;color:var(--gold-light);margin-bottom:.5rem}
+.sos-data-text h3+p{margin-bottom:1.8rem}
+.sos-data-text p{font-size:.95rem;line-height:1.75;color:rgba(243,236,221,.72)}
+.sos-home #data .sos-chart{margin-top:0;background:var(--night);border:1px solid rgba(243,236,221,.1)}
+
+/* ---- News cards in game colours ---- */
+.sos-home .news-card--brandsakert .news-card-header{background:#8a4424}
+.sos-home .news-card--bth .news-card-header{background:#4b5a36}
+.sos-home .news-source-badge{background:rgba(243,236,221,.18);color:var(--cream)}
+.sos-home .news-source-name{color:var(--cream)}
+.sos-home .news-card--brandsakert:hover .news-arrow{color:#8a4424}
+.sos-home .news-card--bth:hover .news-arrow{color:#4b5a36}
+
+@media(max-width:900px){
+    .sos-process,.sos-data-layout{grid-template-columns:1fr;gap:2rem}
+}
+
+/* Inside the game: picture on top, four roles in a row */
+.sos-home .sos-inside-grid{grid-template-columns:1fr;max-width:960px;margin-left:auto;margin-right:auto}
+.sos-home .sos-roles{grid-template-columns:repeat(4,1fr)}
+.sos-home .sos-roles-text{text-align:center}
+.sos-row-body a{color:var(--accent);font-weight:600}
+@media(max-width:700px){.sos-home .sos-roles{grid-template-columns:1fr 1fr}}
