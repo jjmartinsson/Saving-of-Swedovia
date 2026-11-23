@@ -771,12 +771,6 @@ a.position-item:hover .position-cta{color:var(--text)}
    ============================================= */
 
 /* Hero additions */
-.sos-hero-buttons{margin-bottom:1.4rem}
-.sos-btn-play{display:inline-flex;align-items:center;gap:.5rem;font-size:.9rem;padding:.85rem 2rem}
-.sos-hero-note{
-    font-family:var(--font-ui);font-size:.75rem;font-weight:500;letter-spacing:.08em;
-    color:rgba(255,255,255,.7);
-}
 .sos-intro-light{color:rgba(255,255,255,.6)}
 .sos-narrow{max-width:860px}
 
@@ -873,22 +867,6 @@ a.position-item:hover .position-cta{color:var(--text)}
     .sos-bar-row{grid-template-columns:1fr;gap:.35rem}
 }
 
-/* Front page: three parts */
-.sos-hero-content{max-width:1080px}
-.sos-hero-desc{margin-bottom:2.6rem}
-.sos-hero-cols{
-    display:grid;grid-template-columns:repeat(3,1fr);
-    text-align:left;border-top:1px solid rgba(255,255,255,.18);
-}
-.sos-hero-col{padding:1.6rem 1.6rem .4rem;border-left:1px solid rgba(255,255,255,.12)}
-.sos-hero-col:first-child{border-left:none;padding-left:0}
-.sos-hero-col:last-child{padding-right:0}
-.sos-hero-col h2{font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:#fff;margin-bottom:.55rem}
-.sos-hero-col p{font-size:.88rem;line-height:1.7;color:rgba(255,255,255,.72);margin-bottom:1.1rem}
-.sos-hero-col--game h2{color:var(--gold-light)}
-.sos-hero-links{display:flex;gap:1.4rem;flex-wrap:wrap}
-.sos-hero-link{font-family:var(--font-ui);font-size:.86rem;font-weight:600;color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:2px}
-.sos-hero-link:hover{border-color:#fff}
 
 /* The game */
 .sos-play-note{text-align:center;margin-top:1.4rem;font-size:.85rem;color:rgba(255,255,255,.55)}
@@ -920,7 +898,7 @@ a.position-item:hover .position-cta{color:var(--text)}
 }
 
 /* Presentations + news side by side */
-.sos-split{display:grid;grid-template-columns:3fr 2fr;gap:3.5rem;align-items:start}
+.sos-split{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
 .sos-split-heading{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:.5rem}
 .sos-split .sos-presentations{margin-top:0}
 .sos-split .research-block{max-width:none}
@@ -931,10 +909,7 @@ a.position-item:hover .position-cta{color:var(--text)}
     .sos-split{grid-template-columns:1fr;gap:3rem}
 }
 @media(max-width:760px){
-    .sos-hero-cols{grid-template-columns:1fr}
-    .sos-hero-col,.sos-hero-col:first-child{border-left:none;padding:1.3rem 0 .4rem;border-top:1px solid rgba(255,255,255,.12)}
-    .sos-hero-col:first-child{border-top:none}
-    .sos-made-list{grid-template-columns:1fr}
+                .sos-made-list{grid-template-columns:1fr}
     .sos-free-strip li{padding:.7rem 1rem}
 }
 
@@ -1020,4 +995,81 @@ a.position-item:hover .position-cta{color:var(--text)}
 
 @media(max-width:900px){
     .sos-inside-grid,.sos-edu-intro{grid-template-columns:1fr}
+}
+
+/* =============================================
+   WARM DARK SCHEME + NEW FRONT PAGE (homepage only)
+   ============================================= */
+.sos-home{
+    --night:#15120f;       /* deepest: footer, date blocks */
+    --deep:#221e1a;        /* dark sections: smoky, warm */
+    --cream:#f3ecdd;       /* light text on dark */
+}
+.sos-home .navbar.scrolled{background:rgba(24,20,16,.95);box-shadow:0 1px 0 rgba(243,236,221,.08)}
+.sos-home .section-dark{color:var(--cream)}
+.sos-home .section-heading.light{color:var(--cream)}
+.sos-home .sos-intro-light,.sos-home .sos-play-note{color:rgba(243,236,221,.6)}
+.sos-home .footer{background:var(--night);color:rgba(243,236,221,.6)}
+
+/* Front page (C3) */
+.sos-hero{justify-content:center;align-items:stretch}
+.sos-hero-bg{background:radial-gradient(ellipse 70% 70% at 70% 45%,#3b3229 0%,#211c17 55%,#15120f 100%)}
+.sos-hero #fireCanvas{opacity:.35}
+.sos-hero-inner{
+    position:relative;z-index:2;width:100%;max-width:1240px;margin:0 auto;
+    padding:calc(var(--nav-h) + 2rem) var(--gutter) 3rem;
+    display:grid;grid-template-columns:1fr 1.1fr;gap:3.5rem;align-items:center;
+}
+.sos-hero-text h1{
+    font-family:var(--font-display);font-weight:400;color:var(--cream);
+    font-size:clamp(2.8rem,5.6vw,4.6rem);line-height:1.02;margin-bottom:1rem;
+}
+.sos-hero-sub{font-family:'Spectral',Georgia,serif;font-style:italic;font-size:clamp(1.1rem,1.8vw,1.4rem);color:rgba(243,236,221,.88);margin-bottom:1.2rem}
+.sos-hero-lead{font-size:1rem;line-height:1.75;color:rgba(243,236,221,.72);margin-bottom:1.5rem;max-width:520px}
+.sos-hero-bar{
+    border-left:3px solid var(--gold);padding-left:.8rem;
+    font-family:var(--font-ui);font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+    color:rgba(243,236,221,.85);margin-bottom:2rem;
+}
+.sos-hero-tags{display:flex;gap:.55rem;flex-wrap:wrap}
+.sos-tag{
+    font-family:var(--font-display);font-size:.95rem;color:#2b2520;text-decoration:none;white-space:nowrap;
+    background:#e9e0cd;border:1px solid #2b2520;box-shadow:0 0 0 3px #e9e0cd;
+    padding:.55rem .85rem;margin:3px;transition:transform .2s var(--ease),background .2s var(--ease);
+}
+.sos-tag:hover{background:#f6efe0;transform:translateY(-2px)}
+.sos-hero-screen{
+    display:block;border:10px solid #0f0d0b;border-radius:8px;overflow:hidden;
+    box-shadow:0 0 0 1px rgba(243,236,221,.12),0 30px 60px rgba(0,0,0,.55);
+}
+.sos-hero-screen img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .5s var(--ease)}
+.sos-hero-screen:hover img{transform:scale(1.03)}
+.sos-hero-play{
+    display:flex;align-items:center;justify-content:center;gap:.8rem;margin-top:1.1rem;
+    background:var(--gold);color:#15120f;text-decoration:none;
+    font-family:var(--font-display);font-size:clamp(1.15rem,1.8vw,1.55rem);
+    padding:1rem;border-radius:4px;transition:background .2s var(--ease),transform .2s var(--ease);
+}
+.sos-hero-play:hover{background:var(--gold-light);transform:translateY(-2px)}
+.sos-hero-under{text-align:center;font-size:.8rem;color:rgba(243,236,221,.5);margin-top:.7rem}
+
+/* Creators as paper ID cards */
+.sos-home .team-row{max-width:760px;gap:2.2rem 2rem}
+.sos-home .member{
+    width:200px;background:var(--surface);padding:10px 10px 14px;
+    border:1px solid rgba(43,37,32,.6);
+    box-shadow:0 0 0 4px var(--surface),0 0 0 5px rgba(0,0,0,.4),0 18px 34px rgba(0,0,0,.4);
+}
+.sos-home .member-img{width:100%;height:auto;aspect-ratio:1/1;border-radius:0;border:1px solid rgba(43,37,32,.4);margin:0 0 .75rem}
+.sos-home .member:hover .member-img{border-color:rgba(43,37,32,.4)}
+.sos-home .member h3{color:var(--text);font-size:.98rem}
+.sos-home .section-dark .team-contact{color:rgba(243,236,221,.6);margin-top:3rem}
+.sos-home .section-dark .team-contact a{color:var(--gold-light)}
+
+/* Presentations */
+.sos-pres-empty{font-size:.9rem;font-style:italic;color:var(--text-3);padding:.2rem 0 .4rem}
+.sos-home .presentation-date{background:#2b241d}
+
+@media(max-width:900px){
+    .sos-hero-inner{grid-template-columns:1fr;gap:2.5rem}
 }

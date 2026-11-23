@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="css/style.css?v=3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Spectral:ital@1&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 </head>
 <body class="sos-home">
@@ -46,8 +46,8 @@
                 <li><a href="#about" data-en="About" data-sv="Om spelet">About</a></li>
                 <li><a href="#education" data-en="Education" data-sv="Utbildning">Education</a></li>
                 <li><a href="#research" data-en="Research" data-sv="Forskning">Research</a></li>
-                <li><a href="#team" data-en="Creators" data-sv="Skaparna">Creators</a></li>
                 <li><a href="#news" data-en="News" data-sv="Nyheter">News</a></li>
+                <li><a href="#team" data-en="Creators" data-sv="Skaparna">Creators</a></li>
             </ul>
             <div class="nav-right">
                 <button class="lang-switch" id="langSwitch" aria-label="Switch language">
@@ -62,41 +62,31 @@
     </nav>
 
     <!-- ===== HERO / FRONT PAGE ===== -->
-    <header id="home" class="hero">
-        <div class="hero-bg">
-            <div class="hero-gradient"></div>
+    <header id="home" class="hero sos-hero">
+        <div class="hero-bg sos-hero-bg">
             <canvas id="fireCanvas" aria-hidden="true"></canvas>
         </div>
-        <div class="hero-content sos-hero-content">
-            <div class="hero-label">
-                <span class="label-dot"></span>
-                <span data-en="Free research game" data-sv="Gratis forskningsspel">Free research game</span>
+        <div class="sos-hero-inner">
+            <div class="sos-hero-text">
+                <h1>Saving of Swedovia</h1>
+                <p class="sos-hero-sub" data-en="Ethics and hard choices in a climate crisis" data-sv="Etik och svåra val i en klimatkris">Ethics and hard choices in a climate crisis</p>
+                <p class="sos-hero-lead" data-en="Step into the roles of politicians, civil servants and first responders as wildfires spread across Swedovia, and face choices with no clear right answers." data-sv="Kliv in i rollerna som politiker, tjänstemän och räddningspersonal när skogsbränder sprider sig i Swedovia, och ställ dig inför val utan givna rätta svar.">Step into the roles of politicians, civil servants and first responders as wildfires spread across Swedovia, and face choices with no clear right answers.</p>
+                <p class="sos-hero-bar" data-en="Free to play · No sign-up · Swedish &amp; English" data-sv="Gratis att spela · Ingen inloggning · Svenska &amp; engelska">Free to play · No sign-up · Swedish &amp; English</p>
+                <div class="sos-hero-tags">
+                    <a href="#about" class="sos-tag" data-en="About the project" data-sv="Om projektet">About the project</a>
+                    <a href="#research" class="sos-tag" data-en="Research &amp; Data" data-sv="Forskning &amp; data">Research &amp; Data</a>
+                    <a href="#education" class="sos-tag" data-en="Education" data-sv="Utbildning">Education</a>
+                </div>
             </div>
-            <h1>Saving of Swedovia</h1>
-            <p class="hero-desc sos-hero-desc" data-en="A game about ethical decision-making during climate-related crises." data-sv="Ett spel om etiskt beslutsfattande under klimatrelaterade kriser.">A game about ethical decision-making during climate-related crises.</p>
-
-            <div class="sos-hero-cols">
-                <div class="sos-hero-col">
-                    <h2 data-en="What is Saving of Swedovia?" data-sv="Vad är Saving of Swedovia?">What is Saving of Swedovia?</h2>
-                    <p data-en="A research game where you take on the roles of politicians, civil servants and first responders, and face hard choices with no clear right answers." data-sv="Ett forskningsspel där du tar dig an rollerna som politiker, tjänstemän och räddningspersonal och ställs inför svåra val utan givna rätta svar.">A research game where you take on the roles of politicians, civil servants and first responders, and face hard choices with no clear right answers.</p>
-                    <a href="#about" class="sos-hero-link" data-en="Read more →" data-sv="Läs mer →">Read more →</a>
-                </div>
-                <div class="sos-hero-col sos-hero-col--game">
-                    <h2 data-en="The game" data-sv="Spelet">The game</h2>
-                    <p data-en="Free to play for everyone. No account needed. In Swedish and English, and free to use in teaching and training." data-sv="Gratis för alla att spela. Inget konto behövs. På svenska och engelska, och fritt att använda i undervisning och utbildning.">Free to play for everyone. No account needed. In Swedish and English, and free to use in teaching and training.</p>
-                    <a href="#play" class="btn btn-primary sos-btn-play">
-                        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                        <span data-en="Play now" data-sv="Spela nu">Play now</span>
-                    </a>
-                </div>
-                <div class="sos-hero-col">
-                    <h2 data-en="The research" data-sv="Forskningen">The research</h2>
-                    <p data-en="Decisions from consenting adult players help researchers understand how we handle ethical trade-offs in crises. Explore the results yourself." data-sv="Beslut från vuxna spelare som valt att delta hjälper forskare att förstå hur vi hanterar etiska avvägningar i kriser. Utforska resultaten själv.">Decisions from consenting adult players help researchers understand how we handle ethical trade-offs in crises. Explore the results yourself.</p>
-                    <div class="sos-hero-links">
-                        <a href="#research" class="sos-hero-link" data-en="Research →" data-sv="Forskning →">Research →</a>
-                        <a href="#data" class="sos-hero-link" data-en="Open data →" data-sv="Öppna data →">Open data →</a>
-                    </div>
-                </div>
+            <div class="sos-hero-game">
+                <a href="#play" class="sos-hero-screen" aria-label="Play Saving of Swedovia">
+                    <img src="images/game-forest.webp" alt="Scene from the game: a wildfire spreading through the forest in Swedovia">
+                </a>
+                <a href="#play" class="sos-hero-play">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                    <span data-en="Play Saving of Swedovia" data-sv="Spela Saving of Swedovia">Play Saving of Swedovia</span>
+                </a>
+                <p class="sos-hero-under" data-en="Plays directly in your browser" data-sv="Spelas direkt i webbläsaren">Plays directly in your browser</p>
             </div>
         </div>
     </header>
@@ -292,53 +282,6 @@
         </div>
     </section>
 
-    <!-- ===== TEAM ===== -->
-    <section id="team" class="section section-dark">
-        <div class="container">
-            <div class="section-eyebrow light" data-en="The team behind the game" data-sv="Teamet bakom spelet">The team behind the game</div>
-            <h2 class="section-heading light" data-en="Creators" data-sv="Skaparna">Creators</h2>
-            <div class="team-row">
-                <a href="https://joelmartinsson.org" target="_blank" rel="noopener" class="member">
-                    <div class="member-img">
-                        <img src="images/joel.jpg" alt="Joel Martinsson">
-                    </div>
-                    <h3>Joel Martinsson (PI)</h3>
-                </a>
-                <a href="https://www.bth.se/om-bth/personer/veronica-sundstedt" target="_blank" rel="noopener" class="member">
-                    <div class="member-img">
-                        <img src="images/veronica.webp" alt="Veronica Sundstedt">
-                    </div>
-                    <h3>Veronica Sundstedt</h3>
-                </a>
-                <a href="https://lnu.se/personal/anders.bremer/" target="_blank" rel="noopener" class="member">
-                    <div class="member-img">
-                        <img src="images/anders.jpg" alt="Anders Bremer">
-                    </div>
-                    <h3>Anders Bremer</h3>
-                </a>
-                <div class="member">
-                    <div class="member-img">
-                        <img src="images/ronja.jpg" alt="Ronja Henriksson">
-                    </div>
-                    <h3>Ronja Henriksson</h3>
-                </div>
-                <div class="member">
-                    <div class="member-img">
-                        <img src="images/kevin.png" alt="Kevin Björklund">
-                    </div>
-                    <h3>Kevin Björklund</h3>
-                </div>
-                <div class="member">
-                    <div class="member-img">
-                        <img src="images/henrik.png" alt="Henrik Nilsson">
-                    </div>
-                    <h3>Henrik Nilsson</h3>
-                </div>
-            </div>
-            <p class="team-contact" data-en="For questions about the project, please contact PI Joel Martinsson at <a href='mailto:joel.martinsson@lnu.se'>joel.martinsson@lnu.se</a>." data-sv="För frågor om projektet, vänligen kontakta PI Joel Martinsson på <a href='mailto:joel.martinsson@lnu.se'>joel.martinsson@lnu.se</a>.">For questions about the project, please contact PI Joel Martinsson at <a href="mailto:joel.martinsson@lnu.se">joel.martinsson@lnu.se</a>.</p>
-        </div>
-    </section>
-
     <!-- ===== PRESENTATIONS & NEWS ===== -->
     <section id="news" class="section section-alt">
         <div class="container">
@@ -346,7 +289,12 @@
                 <div class="sos-split-col sos-presentations" id="presentations">
                     <h2 class="sos-split-heading" data-en="Presentations" data-sv="Presentationer">Presentations</h2>
             <div class="research-block">
-                <!-- UPCOMING: add <h4 class="pres-section-label" data-en="Upcoming" data-sv="Kommande">Upcoming</h4> + a presentations-grid here when there is an upcoming presentation -->
+                <h4 class="pres-section-label" data-en="Upcoming" data-sv="Kommande">Upcoming</h4>
+                <div class="presentations-grid">
+                    <!-- add upcoming presentation-item blocks here -->
+                    <p class="sos-pres-empty" data-en="New presentations will be announced here." data-sv="Nya presentationer kommer att annonseras här.">New presentations will be announced here.</p>
+                </div>
+
 
                 <h4 class="pres-section-label" data-en="Previous" data-sv="Tidigare">Previous</h4>
                 <div class="presentations-grid">
@@ -452,6 +400,53 @@
         </div>
     </section>
 
+    <!-- ===== TEAM ===== -->
+    <section id="team" class="section section-dark">
+        <div class="container">
+            <div class="section-eyebrow light" data-en="The team behind the game" data-sv="Teamet bakom spelet">The team behind the game</div>
+            <h2 class="section-heading light" data-en="Creators" data-sv="Skaparna">Creators</h2>
+            <div class="team-row">
+                <a href="https://joelmartinsson.org" target="_blank" rel="noopener" class="member">
+                    <div class="member-img">
+                        <img src="images/joel.jpg" alt="Joel Martinsson">
+                    </div>
+                    <h3>Joel Martinsson (PI)</h3>
+                </a>
+                <a href="https://www.bth.se/om-bth/personer/veronica-sundstedt" target="_blank" rel="noopener" class="member">
+                    <div class="member-img">
+                        <img src="images/veronica.webp" alt="Veronica Sundstedt">
+                    </div>
+                    <h3>Veronica Sundstedt</h3>
+                </a>
+                <a href="https://lnu.se/personal/anders.bremer/" target="_blank" rel="noopener" class="member">
+                    <div class="member-img">
+                        <img src="images/anders.jpg" alt="Anders Bremer">
+                    </div>
+                    <h3>Anders Bremer</h3>
+                </a>
+                <div class="member">
+                    <div class="member-img">
+                        <img src="images/ronja.jpg" alt="Ronja Henriksson">
+                    </div>
+                    <h3>Ronja Henriksson</h3>
+                </div>
+                <div class="member">
+                    <div class="member-img">
+                        <img src="images/kevin.png" alt="Kevin Björklund">
+                    </div>
+                    <h3>Kevin Björklund</h3>
+                </div>
+                <div class="member">
+                    <div class="member-img">
+                        <img src="images/henrik.png" alt="Henrik Nilsson">
+                    </div>
+                    <h3>Henrik Nilsson</h3>
+                </div>
+            </div>
+            <p class="team-contact" data-en="For questions about the project, please contact PI Joel Martinsson at <a href='mailto:joel.martinsson@lnu.se'>joel.martinsson@lnu.se</a>." data-sv="För frågor om projektet, vänligen kontakta PI Joel Martinsson på <a href='mailto:joel.martinsson@lnu.se'>joel.martinsson@lnu.se</a>.">For questions about the project, please contact PI Joel Martinsson at <a href="mailto:joel.martinsson@lnu.se">joel.martinsson@lnu.se</a>.</p>
+        </div>
+    </section>
+
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container">
@@ -476,8 +471,8 @@
                         <li><a href="#about" data-en="About" data-sv="Om spelet">About</a></li>
                         <li><a href="#education" data-en="Education" data-sv="Utbildning">Education</a></li>
                         <li><a href="#research" data-en="Research" data-sv="Forskning">Research</a></li>
-                        <li><a href="#team" data-en="Creators" data-sv="Skaparna">Creators</a></li>
                         <li><a href="#news" data-en="News" data-sv="Nyheter">News</a></li>
+                        <li><a href="#team" data-en="Creators" data-sv="Skaparna">Creators</a></li>
                     </ul>
                 </div>
             </div>
