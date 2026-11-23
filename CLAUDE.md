@@ -76,6 +76,15 @@ Only include rows for files that changed. Never tell him to upload or replace a 
 
 Never include `CLAUDE.md`, `.nojekyll`, `README`, `sitemap.xml` or `robots.txt` in the transfer unless Joel asks (they're not part of the live homepage update).
 
+## Change log: manual edits Joel made directly on One.com
+
+These were made by Joel himself on One.com, not through this repo. If something breaks, check these first.
+
+- **2026-11-23: `js/charts.js` (Henrik's graph file).** Joel changed the line `const minimumEntiries = 2;` to `const minimumEntiries = 5;` so charts show "Not enough data" unless at least 5 answers match. Nothing else in the file was meant to change.
+  - **To undo:** on One.com open `js/charts.js` and change `5` back to `2` on that line (or upload Joel's backup copy of the file).
+  - **If `/graphs` stops working after this edit**, likely causes: a character other than the number was changed or deleted (e.g. the `;`), or the file was saved with a different name or in the wrong folder. Compare with the original line exactly: `const minimumEntiries = 2;` (note the misspelling "Entiries", which is correct and must stay).
+  - Note: this limit only hides charts on the page; the backend API (`/api/v1/charts/...`) still sends every answer line. Changing that would need Henrik.
+
 ## Content conventions
 
 - Every visible text needs `data-en` and `data-sv` attributes.
