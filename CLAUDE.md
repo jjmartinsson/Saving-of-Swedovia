@@ -76,6 +76,22 @@ Only include rows for files that changed. Never tell him to upload or replace a 
 
 Never include `CLAUDE.md`, `.nojekyll`, `README`, `sitemap.xml` or `robots.txt` in the transfer unless Joel asks (they're not part of the live homepage update).
 
+## Plan: new homepage with the game and graphs (agreed 2026-11-23)
+
+Joel wants a new homepage design where the game and graphs are more visible. Work happens in two stages:
+
+**Stage 1 — Design (test page).** Build the new design on the test page. Placeholders are allowed here, e.g. a frame saying "The game will appear here" and an example chart marked "Example – not real data". Placeholders must NOT link to or load `/game`, `/graphs`, `/build/...` or `/api/...`. While placeholders are in `index.html`, remind Joel not to copy `index.html` to One.com (unless he asks for a placeholder-free version for another change).
+
+**Stage 2 — Go live (only when Joel says the design is done and asks to "update the files" / "make it ready for the real site").**
+1. Replace every placeholder with the real thing:
+   - Game: an iframe pointing to `/build/index.html` (same method as One.com's `/game` page, which uses `<iframe frameborder="0" allowfullscreen="true" scrolling="no" src="../build/index.html">`). Use the root path `/build/index.html` on the homepage.
+   - Graphs: links/buttons/cards to `/graphs` (do not try to copy the PHP graphs code into `index.html`; embedding `/graphs` in an iframe is possible but it has its own menu/footer).
+   - Any menu/hero buttons: link to `/game` and `/graphs` or to the on-page sections.
+2. Search the final files and remove ALL placeholder text, example data and preview labels (e.g. "will appear here", "placeholder", "Example", "not real data", "Preview"). Nothing like that may remain in the final code.
+3. Tell Joel clearly that on the test page the game area will now look empty/broken and `/graphs` links will give an error — that is expected, because the game and graphs only exist on One.com.
+4. Give the full handoff checklist (backup → download → upload one file at a time → check homepage, `/game`, `/graphs`), and tell him to also check that the game appears on the homepage itself. If it doesn't, restore the backup `index.html`.
+5. Never change `build/`, `backend/`, `pages/`, `.htaccess` or Henrik's files to make this work.
+
 ## Change log: manual edits Joel made directly on One.com
 
 These were made by Joel himself on One.com, not through this repo. If something breaks, check these first.
