@@ -1246,3 +1246,12 @@ a.position-item:hover .position-cta{color:var(--text)}
 }
 .sos-data-btn:hover{background:var(--gold-light);transform:translateY(-2px)}
 .sos-home #data .sos-chart-link{font-size:1rem}
+
+/* Survey feeds into the game: arrow between the two cards */
+.sos-loop-fork--seq::before{content:"↓";letter-spacing:0}
+.sos-loop-fork--seq::after{
+    content:"→";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:2.2rem;height:2.2rem;border-radius:50%;background:var(--accent);color:var(--cream);
+    display:flex;align-items:center;justify-content:center;font-size:1.1rem;z-index:2;
+}
+@media(max-width:900px){.sos-loop-fork--seq::after{content:"↓"}}
