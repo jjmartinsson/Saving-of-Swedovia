@@ -1211,3 +1211,14 @@ a.position-item:hover .position-cta{color:var(--text)}
 .sos-cast-role{font-size:.68rem;white-space:nowrap}
 @media(max-width:1150px){.sos-home .sos-inside-grid .sos-cast{margin-left:0;margin-right:0}}
 @media(max-width:800px){.sos-cast-role{white-space:normal;font-size:.64rem}.sos-cast-name{font-size:.88rem}}
+
+/* ---- Menu bar (N1): typewriter on dark, homepage only ---- */
+.sos-home .navbar{background:rgba(24,20,16,.6);border-bottom:1px solid rgba(201,150,60,.35)}
+.sos-home .navbar.scrolled{background:rgba(24,20,16,.95)}
+.sos-home .nav-logo{font-family:var(--font-display);font-size:1.15rem;color:var(--cream)}
+.sos-home .nav-links a{font-family:var(--font-display);font-size:.98rem;font-weight:400;letter-spacing:0;color:rgba(243,236,221,.75)}
+.sos-home .nav-links a:hover,.sos-home .nav-links a.active{color:var(--gold-light)}
+.sos-home .nav-links a::after{height:0;background:none;border-bottom:2px dashed var(--gold-light)}
+.sos-home .lang-switch{background:#efe6d2;border:1px solid #2b2520;box-shadow:0 0 0 3px #efe6d2;border-radius:0;margin-right:3px}
+.sos-home .lang-switch span{color:#2b2520;border-radius:0;font-family:var(--font-display)}
+.sos-home .lang-switch span.active{background:#2b2520;color:#efe6d2}
