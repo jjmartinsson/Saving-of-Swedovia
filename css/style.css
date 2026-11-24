@@ -1222,3 +1222,4 @@ a.position-item:hover .position-cta{color:var(--text)}
 .sos-home .lang-switch{background:#efe6d2;border:1px solid #2b2520;box-shadow:0 0 0 3px #efe6d2;border-radius:0;margin-right:3px}
 .sos-home .lang-switch span{color:#2b2520;border-radius:0;font-family:var(--font-display)}
 .sos-home .lang-switch span.active{background:#2b2520;color:#efe6d2}
+.sos-home .sos-hero-play{font-size:clamp(1.3rem,2vw,1.7rem);padding:1.1rem}
