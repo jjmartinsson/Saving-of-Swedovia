@@ -1227,3 +1227,8 @@ a.position-item:hover .position-cta{color:var(--text)}
 /* Hide the menu-bar title at the top of the homepage; show it once the visitor scrolls */
 .sos-home .nav-logo{transition:opacity .3s var(--ease),color .25s}
 .sos-home .navbar:not(.sos-logo-on) .nav-logo{opacity:0;pointer-events:none}
+
+/* Front page: bigger cover, rounded gold Play button (option B1) */
+.sos-home .sos-hero-inner{max-width:1400px;grid-template-columns:.85fr 1.35fr;gap:3rem}
+.sos-home .sos-hero-play{border-radius:999px;padding:1.05rem 2rem;margin:1.2rem auto 0;width:max-content;box-shadow:0 12px 28px rgba(201,150,60,.35)}
+@media(max-width:900px){.sos-home .sos-hero-inner{grid-template-columns:1fr}.sos-home .sos-hero-play{width:auto;max-width:100%}}
