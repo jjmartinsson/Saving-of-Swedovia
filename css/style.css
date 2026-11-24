@@ -1226,4 +1226,4 @@ a.position-item:hover .position-cta{color:var(--text)}
 
 /* Hide the menu-bar title at the top of the homepage; show it once the visitor scrolls */
 .sos-home .nav-logo{transition:opacity .3s var(--ease),color .25s}
-.sos-home .navbar:not(.scrolled) .nav-logo{opacity:0;pointer-events:none}
+.sos-home .navbar:not(.sos-logo-on) .nav-logo{opacity:0;pointer-events:none}

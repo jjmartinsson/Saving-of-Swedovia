@@ -29,7 +29,7 @@
     <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="d3yPcQcrVs0xIo2dH055kTz5W8nP0IK_MBkobrfxz1A">
 
-    <link rel="stylesheet" href="css/style.css?v=14">
+    <link rel="stylesheet" href="css/style.css?v=15">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Spectral:ital@1&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -589,5 +589,11 @@
     </div>
 
     <script src="js/main.js?v=4"></script>
+    <script>
+    /* Homepage only: show the menu-bar title once the visitor has scrolled past most of the front page */
+    (function(){var n=document.getElementById('navbar'),h=document.getElementById('home');
+    function u(){n.classList.toggle('sos-logo-on',window.scrollY>h.offsetHeight*0.7);}
+    window.addEventListener('scroll',u,{passive:true});u();})();
+    </script>
 </body>
 </html>
