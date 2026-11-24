@@ -93,7 +93,7 @@ Joel wants a new homepage design where the game and graphs are more visible. Wor
 5. Never change `build/`, `backend/`, `pages/`, `.htaccess` or Henrik's files to make this work.
 6. The new design adds a `downloads/` folder (educator guide PDF `downloads/saving-of-swedovia-educator-guide.pdf`). In the handoff, tell Joel to create a `downloads` folder at the top level on One.com and upload the PDF into it (new folder, nothing to back up).
 6b. New images used by the design must also be uploaded to One.com's `images/` folder: `game-patrols.webp`, `game-forest.webp`, `game-fire-dilemma.webp`, and the cast cut-outs `cast-ethos.webp`, `cast-oskar.webp`, `cast-ake.webp`, `cast-layla.webp`, `cast-anna.webp`, `cast-johan.webp` (cut from Joel's screenshots; swap for clean originals if Joel provides them).
-6e. About has a cast row "Some of the people you will meet in the game" (`.sos-cast`): Ethos (Professor), Oskar (Police chief, clean picture from Joel), Åke (Rescue commander; Swedish: Insatsledare), Layla (Medical commander), Anna (Politician?), Johan (Civil servant?). Anna's and Johan's roles are Claude's guesses: confirm with Joel.
+6e. About has a cast row "Some of the people you will meet in the game" (`.sos-cast`): Ethos (Professor), Oskar (Police chief, clean picture from Joel), Åke (Rescue commander; Swedish: Insatsledare), Layla (Medical commander), Anna (Politician), Johan (Civil servant) — confirmed by Joel.
 6g. Education examples: Distribution = police patrols (`game-patrols.webp`), Dilemma = firefighters (`game-fire-dilemma.webp`).
 6h. Scenario process (About, `#made`): identify dilemmas → interviews → update scenarios → interviews again (repeated) → finished scenarios → into the survey AND into the game. The scenario method is under development and will be presented in Research (`#method`).
 6i. Swedovia is a fictional TOWN (Swedish: staden), not a country. Survey results (what Swedish citizens thought should be done) were built into the game itself.
@@ -103,6 +103,12 @@ Joel wants a new homepage design where the game and graphs are more visible. Wor
 7. Placeholders to replace are marked in `index.html` with `<!-- STAGE 2: ... -->` comments (game frame in `#play`; the example chart, its "Example – not real data" note and the "Open the data explorer" link in the Data section `#data`, which is its own section after `#research`). The example chart should become a clear link/card to `/graphs` (no fake numbers).
 
 Section IDs `home`, `about`, `team`, `research`, `news` must always exist in `index.html`: Henrik's `/game` and `/graphs` pages link to `/#home`, `/#about`, `/#team`, `/#research`, `/#news`.
+
+## Educator guide (in progress, agreed 2026-11-24)
+
+New, longer educator guide replacing the draft at `downloads/saving-of-swedovia-educator-guide.pdf`. English first; Swedish translation later when Joel asks. One shared guide with a table of contents and a section per profession (police, rescue services, healthcare, politicians & civil servants). Usable for practitioners, students of those professions and upper secondary (gymnasium) pupils.
+Contents: what the game is + how it was developed; research-game note (data used for research, nothing collected that can identify individuals, read the information at the start of the game); players under 18 can play but their data is not saved; teacher as facilitator (guides with suggested follow-up questions, does not give answers); 2-hour session (~45 min play individually or in groups, break, discussion from the results screen per main decision with sub-decisions + questions, closing discussion); shorter variant (play in groups ~60 min, no discussion or discussion later); printable handout with follow-up questions per scenario for small-group discussion; one page of additional material (data explorer, survey results, research on the website); only Joel's email for feedback/questions (joel.martinsson@lnu.se). Skip: learning goals, audience adaptations, curriculum links, psychological safety section, practical checklist.
+Dilemmas = adapted versions of the survey dilemmas (Joel will send texts, then screenshots).
 
 ## Change log: manual edits Joel made directly on One.com
 
