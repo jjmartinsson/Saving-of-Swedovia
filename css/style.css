@@ -941,13 +941,6 @@ a.position-item:hover .position-cta{color:var(--text)}
 .sos-shot{margin:0;padding:.6rem .6rem .8rem}
 .sos-shot img{display:block;width:100%;height:auto;border:1px solid rgba(43,37,32,.35)}
 .sos-shot figcaption{font-size:.84rem;line-height:1.6;color:var(--text-2);padding:.7rem .3rem 0}
-.sos-roles{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
-.sos-role{margin:0;padding:.5rem}
-.sos-role img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;object-position:top;border:1px solid rgba(43,37,32,.35)}
-.sos-role figcaption{text-align:center;padding:.6rem 0 .2rem}
-.sos-role-name{display:block;font-family:var(--font-display);font-size:1.1rem;color:var(--text)}
-.sos-role-title{display:block;font-family:var(--font-display);font-size:.78rem;color:var(--text-3)}
-.sos-roles-text{grid-column:1/-1;font-size:.88rem;line-height:1.65;color:var(--text-2)}
 
 /* How it was made: paper cards */
 
@@ -1055,13 +1048,6 @@ a.position-item:hover .position-cta{color:var(--text)}
     .sos-hero-inner{grid-template-columns:1fr;gap:2.5rem}
 }
 
-/* ---- Roles: placeholder cards ---- */
-.sos-role-ph{
-    aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;
-    background:repeating-linear-gradient(45deg,#ebe2d0 0 10px,#e4dac6 10px 20px);
-    border:1px dashed rgba(43,37,32,.45);color:rgba(43,37,32,.45);
-    font-family:var(--font-display);font-size:.8rem;
-}
 
 /* ---- From real experiences to a game (process) ---- */
 .sos-process-link{display:inline-block;margin-top:.5rem;font-size:.88rem;font-weight:600;color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(162,74,34,.4)}
@@ -1088,10 +1074,7 @@ a.position-item:hover .position-cta{color:var(--text)}
 
 /* Inside the game: picture on top, four roles in a row */
 .sos-home .sos-inside-grid{grid-template-columns:1fr;max-width:960px;margin-left:auto;margin-right:auto}
-.sos-home .sos-roles{grid-template-columns:repeat(4,1fr)}
-.sos-home .sos-roles-text{text-align:center}
 .sos-row-body a{color:var(--accent);font-weight:600}
-@media(max-width:700px){.sos-home .sos-roles{grid-template-columns:1fr 1fr}}
 
 /* Education: two examples */
 .sos-edu-intro--stack{display:block}
@@ -1205,3 +1188,26 @@ a.position-item:hover .position-cta{color:var(--text)}
     .sos-loop-fork{grid-template-columns:1fr}
     .sos-loop-fork::before{content:"↓";letter-spacing:0}
 }
+
+/* ---- Cast: people you meet in the game ---- */
+.sos-cast{margin-top:2.6rem;text-align:center}
+.sos-cast-heading{font-family:var(--font-display);font-weight:400;font-size:1.2rem;color:var(--text);margin-bottom:1.4rem}
+.sos-cast-row{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem;align-items:end}
+.sos-cast-person{margin:0;display:flex;flex-direction:column;align-items:center}
+.sos-cast-person img{display:block;width:100%;height:auto;filter:drop-shadow(0 10px 14px rgba(43,37,32,.22));transition:transform .3s var(--ease)}
+.sos-cast-person:hover img{transform:translateY(-4px)}
+.sos-cast-tag{
+    position:relative;z-index:1;margin-top:-1.4rem;min-width:85%;
+    background:#efe6d2;border:1px solid #2b2520;box-shadow:0 0 0 3px #efe6d2,0 0 0 4px rgba(43,37,32,.35),0 6px 14px rgba(43,37,32,.18);
+    padding:.4rem .5rem .35rem;
+}
+.sos-cast-name{display:block;font-family:var(--font-display);font-size:1rem;color:#2b2520;line-height:1.2}
+.sos-cast-role{display:block;font-family:var(--font-display);font-size:.72rem;color:#6b5e50;border-top:1px solid rgba(43,37,32,.3);margin-top:.2rem;padding-top:.15rem}
+@media(max-width:800px){.sos-cast-row{grid-template-columns:repeat(3,1fr);row-gap:2rem}}
+.sos-home .sos-inside-grid .sos-cast{margin-left:-80px;margin-right:-80px}
+.sos-cast-row{gap:.6rem}
+.sos-cast-tag{margin-top:-.7rem;min-width:0;width:auto;padding:.3rem .7rem .25rem}
+.sos-cast-name{font-size:.98rem}
+.sos-cast-role{font-size:.68rem;white-space:nowrap}
+@media(max-width:1150px){.sos-home .sos-inside-grid .sos-cast{margin-left:0;margin-right:0}}
+@media(max-width:800px){.sos-cast-role{white-space:normal;font-size:.64rem}.sos-cast-name{font-size:.88rem}}
