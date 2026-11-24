@@ -1223,3 +1223,7 @@ a.position-item:hover .position-cta{color:var(--text)}
 .sos-home .lang-switch span{color:#2b2520;border-radius:0;font-family:var(--font-display)}
 .sos-home .lang-switch span.active{background:#2b2520;color:#efe6d2}
 .sos-home .sos-hero-play{font-size:clamp(1.3rem,2vw,1.7rem);padding:1.1rem}
+
+/* Hide the menu-bar title at the top of the homepage; show it once the visitor scrolls */
+.sos-home .nav-logo{transition:opacity .3s var(--ease),color .25s}
+.sos-home .navbar:not(.scrolled) .nav-logo{opacity:0;pointer-events:none}
