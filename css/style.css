@@ -1235,3 +1235,14 @@ a.position-item:hover .position-cta{color:var(--text)}
 
 /* Homepage menu bar as wide as the front page, so EN/SV lines up with the cover frame */
 .sos-home .nav-inner{max-width:1400px}
+
+/* Clear call-to-action to the data explorer */
+.sos-data-btn{
+    display:inline-flex;align-items:center;gap:.7rem;margin:.2rem 0 2.2rem;
+    background:var(--gold);color:#15120f;text-decoration:none;
+    font-family:var(--font-display);font-size:1.15rem;
+    padding:.9rem 1.6rem;border-radius:999px;box-shadow:0 12px 28px rgba(201,150,60,.3);
+    transition:background .2s var(--ease),transform .2s var(--ease);
+}
+.sos-data-btn:hover{background:var(--gold-light);transform:translateY(-2px)}
+.sos-home #data .sos-chart-link{font-size:1rem}
