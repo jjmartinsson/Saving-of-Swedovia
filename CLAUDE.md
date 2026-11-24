@@ -110,6 +110,10 @@ New, longer educator guide replacing the draft at `downloads/saving-of-swedovia-
 Contents: what the game is + how it was developed; research-game note (data used for research, nothing collected that can identify individuals, read the information at the start of the game); players under 18 can play but their data is not saved; teacher as facilitator (guides with suggested follow-up questions, does not give answers); 2-hour session (~45 min play individually or in groups, break, discussion from the results screen per main decision with sub-decisions + questions, closing discussion); shorter variant (play in groups ~60 min, no discussion or discussion later); printable handout with follow-up questions per scenario for small-group discussion; one page of additional material (data explorer, survey results, research on the website); only Joel's email for feedback/questions (joel.martinsson@lnu.se). Skip: learning goals, audience adaptations, curriculum links, psychological safety section, practical checklist.
 Dilemmas = adapted versions of the survey dilemmas. Four missions (uppdrag): Police (PS1-6), Healthcare (SV1-6), Rescue services (RT1-6), Politics = politicians + civil servants combined (PT1-6, treat as existing). Game start: meet Professor Ethos at VERITAS -> some background questions (keep vague) -> intro to Swedovia -> choose mission. Under-18s can play, no data saved.
 
+## Guide symbols (reminder for Joel)
+
+The educator guide uses mission map-pin symbols drawn by Claude to resemble the game's pins (police, healthcare, rescue services). The Politics pin (town hall) is a placeholder. Remind Joel to double-check all symbols against the game and send the real ones (especially Politics) so they can be swapped in.
+
 ## Change log: manual edits Joel made directly on One.com
 
 These were made by Joel himself on One.com, not through this repo. If something breaks, check these first.
