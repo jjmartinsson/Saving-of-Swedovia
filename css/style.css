@@ -1309,3 +1309,7 @@ a.position-item:hover .position-cta{color:var(--text)}
 .sos-home .sos-more[open] .sos-more-close{display:inline}
 .sos-home .sos-more[open] summary{margin-bottom:1rem}
 .sos-home .sos-more .reveal{opacity:1;transform:none}
+/* Risk and chance note in About (homepage only) */
+.sos-home .sos-chance{margin:-1rem 0 2.2rem;padding:.9rem 1.2rem;border-left:3px solid var(--accent);background:rgba(43,37,32,.04)}
+.sos-home .sos-chance h4{font-family:var(--font-display);font-size:1rem;color:var(--text);margin:0 0 .3rem}
+.sos-home .about-content .sos-chance p{font-size:.88rem;line-height:1.6;color:var(--text-2);margin:0}
