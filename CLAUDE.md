@@ -93,6 +93,7 @@ Joel wants a new homepage design where the game and graphs are more visible. Wor
 5. Never change `build/`, `backend/`, `pages/`, `.htaccess` or Henrik's files to make this work.
 6. The new design adds a `downloads/` folder (educator guide PDF `downloads/saving-of-swedovia-educator-guide.pdf`). In the handoff, tell Joel to create a `downloads` folder at the top level on One.com and upload the PDF into it (new folder, nothing to back up).
 6b. New images used by the design must also be uploaded to One.com's `images/` folder: `game-patrols.webp`, `game-forest.webp`, `game-fire-dilemma.webp`, and the cast cut-outs `cast-ethos.webp`, `cast-oskar.webp`, `cast-ake.webp`, `cast-layla.webp`, `cast-anna.webp`, `cast-johan.webp` (cut from Joel's screenshots; swap for clean originals if Joel provides them).
+6j. About also has "How a mission works" (`.sos-mission`, with the four mission pins `pin-police.webp`, `pin-rescue.webp`, `pin-health.webp`, `pin-politics.webp`) and "Ten ethical principles" (`.sos-principles`, icons `principle-life.webp`, `principle-honesty.webp`, `principle-freedom.webp`, `principle-safety.webp`, `principle-equal-distribution.webp`, `principle-benefit.webp`, `principle-equal-outcomes.webp`, `principle-responder-safety.webp`, `principle-responsibility.webp`, `principle-loyalty.webp`). All are the game's own UI images from Joel, except `principle-responsibility.webp` (handshake), which was cut out of a profile screenshot; swap it for the original if Joel sends it. Upload all 14 to One.com `images/` at go-live.
 6e. About has a cast row "Some of the people you will meet in the game" (`.sos-cast`): Ethos (Professor), Oskar (Police chief, clean picture from Joel), Åke (Rescue commander; Swedish: Insatsledare), Layla (Medical commander), Anna (Politician), Johan (Civil servant) — confirmed by Joel.
 6g. Education examples: Distribution = police patrols (`game-patrols.webp`), Dilemma = firefighters (`game-fire-dilemma.webp`).
 6h. Scenario process (About, `#made`): identify dilemmas → interviews → update scenarios → interviews again (repeated) → finished scenarios → into the survey AND into the game. The scenario method is under development and will be presented in Research (`#method`).
@@ -110,9 +111,13 @@ New, longer educator guide replacing the draft at `downloads/saving-of-swedovia-
 Contents: what the game is + how it was developed; research-game note (data used for research, nothing collected that can identify individuals, read the information at the start of the game); players under 18 can play but their data is not saved; teacher as facilitator (guides with suggested follow-up questions, does not give answers); 2-hour session (~45 min play individually or in groups, break, discussion from the results screen per main decision with sub-decisions + questions, closing discussion); shorter variant (play in groups ~60 min, no discussion or discussion later); printable handout with follow-up questions per scenario for small-group discussion; one page of additional material (data explorer, survey results, research on the website); only Joel's email for feedback/questions (joel.martinsson@lnu.se). Skip: learning goals, audience adaptations, curriculum links, psychological safety section, practical checklist.
 Dilemmas = adapted versions of the survey dilemmas. Four missions (uppdrag): Police (PS1-6), Healthcare (SV1-6), Rescue services (RT1-6), Politics = politicians + civil servants combined (PT1-6, treat as existing). Game start: meet Professor Ethos at VERITAS -> some background questions (keep vague) -> intro to Swedovia -> choose mission. Under-18s can play, no data saved.
 
-## Guide symbols (reminder for Joel)
+## Guide symbols
 
-The educator guide uses mission map-pin symbols drawn by Claude to resemble the game's pins (police, healthcare, rescue services). The Politics pin (town hall) is a placeholder. Remind Joel to double-check all symbols against the game and send the real ones (especially Politics) so they can be swapped in.
+The educator guide now uses the game's real mission pins and principle icons (sent by Joel 2026-11-25). The Ansvar/Responsibility handshake icon was cut from a screenshot; ask Joel for the original file.
+
+## In-game screens (from Joel, 2026-11-25)
+
+After each dilemma: an evaluation (what the advice led to + which principles were prioritised). Some dilemmas, not all, end with an ethical directive (slider between two principles). Between dilemmas the player can open their profile at any time: agreement with Swedish citizens (Medborgaröverensstämmelse), mission outcome (dead, survivors, injured, unharmed) and meters for the ten principles.
 
 ## Change log: manual edits Joel made directly on One.com
 
