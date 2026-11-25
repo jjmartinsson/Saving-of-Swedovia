@@ -1256,3 +1256,8 @@ a.position-item:hover .position-cta{color:var(--text)}
 @media(max-width:900px){.sos-loop-fork--seq::after{content:"↓"}}
 .sos-loop-small{font-size:.84rem!important;font-style:italic;color:var(--text-3)!important;border-top:1px dashed rgba(43,37,32,.25);padding-top:.5rem;margin-top:.2rem}
 .sos-home #data .sos-chart-ctx{font-size:.84rem;line-height:1.55;color:#5a5046;margin:-.6rem 0 1.2rem}
+/* How a mission works (homepage only) */
+.sos-home .sos-mission{margin-top:3.5rem;text-align:center}
+.sos-home .sos-mission-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:1.4rem;margin-top:1.6rem;text-align:left}
+@media(max-width:900px){.sos-home .sos-mission-steps{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.sos-home .sos-mission-steps{grid-template-columns:1fr}}
