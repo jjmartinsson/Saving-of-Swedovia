@@ -1258,12 +1258,10 @@ a.position-item:hover .position-cta{color:var(--text)}
 .sos-home #data .sos-chart-ctx{font-size:.84rem;line-height:1.55;color:#5a5046;margin:-.6rem 0 1.2rem}
 /* How a mission works (homepage only) */
 .sos-home .sos-mission{margin-top:3.5rem;text-align:center}
-.sos-home .sos-mission-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:1.4rem;margin-top:1.6rem;text-align:left}
+.sos-home .sos-mission-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:1.6rem;text-align:left}
 @media(max-width:900px){.sos-home .sos-mission-steps{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.sos-home .sos-mission-steps{grid-template-columns:1fr}}
-/* Mission pins and the ten principles (homepage only) */
-.sos-home .sos-mission-pins{display:flex;gap:.35rem;margin-top:.7rem}
-.sos-home .sos-mission-pins img{height:44px;width:auto}
+/* The ten principles (homepage only) */
 .sos-home .sos-principles{margin-top:3.5rem;text-align:center}
 .sos-home .sos-principles-intro{font-family:'Spectral',Georgia,serif;font-style:italic;font-size:1.05rem;color:var(--text-2);max-width:640px;margin:.2rem auto 1.8rem}
 .sos-home .sos-principles-grid{list-style:none;padding:0;margin:0 auto;max-width:960px;display:grid;grid-template-columns:1fr 1fr;gap:1rem 2.2rem;text-align:left}
