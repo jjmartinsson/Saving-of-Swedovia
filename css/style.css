@@ -1318,3 +1318,10 @@ a.position-item:hover .position-cta{color:var(--text)}
 .sos-home .sos-guide-btns{display:flex;flex-wrap:wrap;gap:.7rem}
 .sos-home .sos-guide-btn--alt{background:transparent;color:var(--accent);border:1.5px solid var(--accent)}
 .sos-home .sos-guide-btn--alt:hover{background:var(--accent);color:var(--cream);filter:none}
+/* Risk note: same look as the educator guide (overrides the earlier accent bar) */
+.sos-home .sos-chance{display:flex;gap:1.3rem;align-items:flex-start;border-left:none;background:#f7f4ee;padding:1.2rem 1.4rem;border-radius:2px}
+.sos-home .sos-chance-die{width:56px;height:56px;flex:none;margin-top:.15rem}
+.sos-home .sos-chance h4{font-family:'Inter',system-ui,sans-serif;font-weight:700;font-size:1rem;margin:0 0 .35rem}
+.sos-home .about-content .sos-chance p{font-size:.92rem;line-height:1.65;margin:0 0 .5rem}
+.sos-home .about-content .sos-chance p:last-child{margin-bottom:0}
+@media(max-width:560px){.sos-home .sos-chance-die{width:42px;height:42px}}
