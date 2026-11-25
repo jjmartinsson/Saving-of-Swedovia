@@ -1326,3 +1326,21 @@ a.position-item:hover .position-cta{color:var(--text)}
 .sos-home .about-content .sos-chance p:last-child{margin-bottom:0}
 @media(max-width:560px){.sos-home .sos-chance-die{width:42px;height:42px}}
 .sos-home .sos-chance{background:var(--surface);border:1px solid rgba(43,37,32,.22);border-radius:6px}
+/* Process fork: drawn connector instead of the ↙ ↘ text arrows (homepage only) */
+.sos-home .sos-loop-fork::before{
+    content:"";letter-spacing:0;font-size:0;transform:none;
+    left:25%;right:25%;top:-1.7rem;height:1.45rem;
+    border:2px solid var(--accent);border-bottom:none;border-radius:12px 12px 0 0;
+    background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M0 0h12L6 8z' fill='%23a24a22'/%3E%3C/svg%3E") left -7px bottom -6px / 12px 8px no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M0 0h12L6 8z' fill='%23a24a22'/%3E%3C/svg%3E") right -7px bottom -6px / 12px 8px no-repeat;
+    background-origin:border-box;
+}
+@media(max-width:900px){.sos-home .sos-loop-fork::before{display:none}}
+.sos-home .sos-loop-fork::before{z-index:3;top:-2rem;height:1.35rem}
+.sos-home .sos-loop-fork::before{background:none;height:1.15rem;top:-1.95rem}
+.sos-home .sos-fork-arrow{position:absolute;top:-.95rem;width:14px;height:9px;transform:translateX(-50%);z-index:3;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 9'%3E%3Cpath d='M0 0h14L7 9z' fill='%23a24a22'/%3E%3C/svg%3E") center/contain no-repeat}
+.sos-home .sos-fork-arrow--l{left:calc(25% + 1px)}
+.sos-home .sos-fork-arrow--r{left:calc(75% - 1px)}
+@media(max-width:900px){.sos-home .sos-fork-arrow{display:none}}
