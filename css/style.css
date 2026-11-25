@@ -1313,3 +1313,8 @@ a.position-item:hover .position-cta{color:var(--text)}
 .sos-home .sos-chance{margin:-1rem 0 2.2rem;padding:.9rem 1.2rem;border-left:3px solid var(--accent);background:rgba(43,37,32,.04)}
 .sos-home .sos-chance h4{font-family:var(--font-display);font-size:1rem;color:var(--text);margin:0 0 .3rem}
 .sos-home .about-content .sos-chance p{font-size:.88rem;line-height:1.6;color:var(--text-2);margin:0}
+/* Educator guide in two languages (homepage only) */
+.sos-home .sos-guide-text .sos-guide-langs{font-size:.88rem;font-weight:600;color:var(--text);margin:.2rem 0 .5rem}
+.sos-home .sos-guide-btns{display:flex;flex-wrap:wrap;gap:.7rem}
+.sos-home .sos-guide-btn--alt{background:transparent;color:var(--accent);border:1.5px solid var(--accent)}
+.sos-home .sos-guide-btn--alt:hover{background:var(--accent);color:var(--cream);filter:none}
