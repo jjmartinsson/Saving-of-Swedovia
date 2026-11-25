@@ -1284,3 +1284,7 @@ a.position-item:hover .position-cta{color:var(--text)}
 .sos-home .sos-workshop-note p{font-size:.9rem;line-height:1.65;color:var(--text-2);margin:0}
 .sos-home .sos-workshop-note a{color:var(--accent);font-weight:600}
 @media(max-width:700px){.sos-home .sos-guide{grid-template-columns:1fr;padding:1.3rem}.sos-home .sos-guide-cover{max-width:180px}}
+/* Research sub-headings above the text; label above example cards (homepage only) */
+.sos-home #research .sos-row{display:block}
+.sos-home #research .sos-row-label{margin-bottom:.6rem}
+.sos-home .sos-examples-label{font-family:var(--font-display);font-size:1.05rem;color:var(--text);margin:2rem 0 -1rem;text-align:center}
