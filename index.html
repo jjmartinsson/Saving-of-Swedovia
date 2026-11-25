@@ -29,7 +29,7 @@
     <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="d3yPcQcrVs0xIo2dH055kTz5W8nP0IK_MBkobrfxz1A">
 
-    <link rel="stylesheet" href="css/style.css?v=26">
+    <link rel="stylesheet" href="css/style.css?v=27">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Spectral:ital@1&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -118,18 +118,26 @@
 
             <div class="about-content">
                 <p class="lead" data-en="Saving of Swedovia is an interactive research game that explores how people think ethical dilemmas during natural hazards should be handled. A wildfire is spreading in the fictional town of Swedovia. You play a newly recruited ethical adviser at VERITAS, an independent group called in to guide the police, the rescue services, healthcare, and politicians and civil servants. They ask what they should do when values clash and there is no clear right answer. You advise, they act." data-sv="Saving of Swedovia är ett interaktivt forskningsspel som utforskar hur människor anser att etiska dilemman vid naturkatastrofer bör hanteras. En skogsbrand sprider sig i den fiktiva staden Swedovia. Du spelar en nyrekryterad etisk rådgivare vid VERITAS, en oberoende grupp som kallas in för att vägleda polisen, räddningstjänsten, vården samt politiker och tjänstemän. De frågar vad de bör göra när värden krockar och det saknas tydliga rätta svar. Du ger råd, de agerar.">Saving of Swedovia is an interactive research game that explores how people think ethical dilemmas during natural hazards should be handled. A wildfire is spreading in the fictional town of Swedovia. You play a newly recruited ethical adviser at VERITAS, an independent group called in to guide the police, the rescue services, healthcare, and politicians and civil servants. They ask what they should do when values clash and there is no clear right answer. You advise, they act.</p>
-
-                <p class="sos-examples-label" data-en="Examples from the game" data-sv="Exempel från spelet">Examples from the game</p>
-                <div class="sos-edu-examples sos-about-examples">
-                    <figure class="sos-paper sos-shot">
-                        <span class="sos-shot-kicker" data-en="Dilemma" data-sv="Dilemma">Dilemma</span>
-                        <img src="images/game-fire-dilemma.webp" alt="" loading="lazy">
-                        <figcaption data-en="A house is fully ablaze and nobody knows how long the floor will hold. Do the firefighters go in?" data-sv="Ett hus är övertänt och ingen vet hur länge bjälklaget håller. Ska brandmännen gå in?">A house is fully ablaze and nobody knows how long the floor will hold. Do the firefighters go in?</figcaption>
+                <div class="sos-about-examples">
+                    <figure class="sos-ex">
+                        <div class="sos-ex-img">
+                            <img src="images/game-fire-dilemma.webp" alt="" loading="lazy">
+                            <span class="sos-ex-badge" data-en="Example from the game" data-sv="Exempel från spelet">Example from the game</span>
+                        </div>
+                        <figcaption>
+                            <span class="sos-ex-kind" data-en="Dilemma" data-sv="Dilemma">Dilemma</span>
+                            <span class="sos-ex-text" data-en="A house is fully ablaze and nobody knows how long the floor will hold. Do the firefighters go in?" data-sv="Ett hus är övertänt och ingen vet hur länge bjälklaget håller. Ska brandmännen gå in?">A house is fully ablaze and nobody knows how long the floor will hold. Do the firefighters go in?</span>
+                        </figcaption>
                     </figure>
-                    <figure class="sos-paper sos-shot">
-                        <span class="sos-shot-kicker" data-en="Distribution" data-sv="Fördelning">Distribution</span>
-                        <img src="images/game-patrols.webp" alt="" loading="lazy">
-                        <figcaption data-en="Eight police patrols, four areas at risk. How should they be divided?" data-sv="Åtta polispatruller, fyra utsatta områden. Hur bör de fördelas?">Eight police patrols, four areas at risk. How should they be divided?</figcaption>
+                    <figure class="sos-ex">
+                        <div class="sos-ex-img">
+                            <img src="images/game-patrols.webp" alt="" loading="lazy">
+                            <span class="sos-ex-badge" data-en="Example from the game" data-sv="Exempel från spelet">Example from the game</span>
+                        </div>
+                        <figcaption>
+                            <span class="sos-ex-kind" data-en="Distribution" data-sv="Fördelning">Distribution</span>
+                            <span class="sos-ex-text" data-en="Eight police patrols, four areas at risk. How should they be divided?" data-sv="Åtta polispatruller, fyra utsatta områden. Hur bör de fördelas?">Eight police patrols, four areas at risk. How should they be divided?</span>
+                        </figcaption>
                     </figure>
                 </div>
 
@@ -420,6 +428,11 @@
                             <p>Ghost Lab</p>
                         </div>
                     </div>
+                </div>
+                <!-- Show at most 5 presentations; older ones go inside this "+" block -->
+                <details class="sos-more">
+                    <summary><span class="sos-more-open" data-en="+ Show more presentations" data-sv="+ Visa fler presentationer">+ Show more presentations</span><span class="sos-more-close" data-en="− Show fewer" data-sv="− Visa färre">− Show fewer</span></summary>
+                    <div class="presentations-grid">
                     <div class="presentation-item">
                         <div class="presentation-date">
                             <span class="pres-day">16</span>
@@ -453,11 +466,13 @@
                             <p data-en="Linköping University" data-sv="Linköpings universitet">Linköping University</p>
                         </div>
                     </div>
-                </div>
+                    </div>
+                </details>
             </div>
                 </div>
                 <div class="sos-split-col">
                     <h3 class="sos-split-heading" data-en="Swedovia in the News" data-sv="Swedovia i nyheterna">Swedovia in the News</h3>
+            <!-- Show at most 5 news cards here; put older ones in a <details class="sos-more"> block like the presentations -->
             <div class="news-grid">
                 <a href="https://brandsakert.se/2026/04/10/spela-dig-bort-fran-brandfaran/" target="_blank" rel="noopener" class="news-card news-card--brandsakert">
                     <div class="news-card-header">
