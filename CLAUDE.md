@@ -113,6 +113,16 @@ New, longer educator guide replacing the draft at `downloads/saving-of-swedovia-
 Contents: what the game is + how it was developed; research-game note (data used for research, nothing collected that can identify individuals, read the information at the start of the game); players under 18 can play but their data is not saved; teacher as facilitator (guides with suggested follow-up questions, does not give answers); 2-hour session (~45 min play individually or in groups, break, discussion from the results screen per main decision with sub-decisions + questions, closing discussion); shorter variant (play in groups ~60 min, no discussion or discussion later); printable handout with follow-up questions per scenario for small-group discussion; one page of additional material (data explorer, survey results, research on the website); only Joel's email for feedback/questions (joel.martinsson@lnu.se). Skip: learning goals, audience adaptations, curriculum links, psychological safety section, practical checklist.
 Dilemmas = adapted versions of the survey dilemmas. Four missions (uppdrag): Police (PS1-6), Healthcare (SV1-6), Rescue services (RT1-6), Politics = politicians + civil servants combined (PT1-6, treat as existing). Game start: meet Professor Ethos at VERITAS -> some background questions (keep vague) -> intro to Swedovia -> choose mission. Under-18s can play, no data saved.
 
+## In-depth material / Fördjupningsmaterial (started 2026-11-27)
+
+Companion PDF to the educator guide: "Fördjupningsmaterial Saving of Swedovia" / "In-depth material". Parts: 1 About the principles, 2 The ten principles, 3 Ethical directives, 4 The profile and Swedish citizens, 5 The principles dilemma by dilemma, back page. Source: Joel's docs SOS_Principer_20261126 + Kodningsschema_Principer_20261126 (all "ÄNDRAS I SPELET" changes treated as done). Built with scratchpad `build_princ.py` (PLANG=sv|en) from `princ_content_sv.json` / `princ_content_en.json`. Not on the website yet (Joel to decide).
+
+**Open questions Joel will come back to (do not resolve on your own; remind him):**
+- Furudalen (all missions): if the player sent 0, does keeping 0 in the follow-up count Loyalty again, or does the follow-up not count at all? What if the player raises the number after the news? (Text now: follow-up does not count for Responsibility.)
+- Police, first dilemma: if the main decision counted as e.g. both Safety and Responsibility and the player keeps the distribution, does only Safety count again? (Text now: "main decision's principle counts again, except Responsibility".)
+- Rescue, animals: when the player withdraws, is the principle set aside for all remaining animal groups or one? Is the first run "risk-free" or "almost risk-free"? (Text now: principle for the animals left behind; first run risk-free.)
+Answered 2026-11-27: title "Vem ska bäras ut först genom skottlinjen?"; rescue first dilemma 3 units to Djurgården with no other pattern = no principle (intended); healthcare rescue-chief asymmetry intended; cordoned zones requested by police AND rescue services.
+
 ## Guide symbols
 
 The educator guide now uses the game's real mission pins and principle icons (sent by Joel 2026-11-25). The Ansvar/Responsibility handshake icon was cut from a screenshot; ask Joel for the original file.
