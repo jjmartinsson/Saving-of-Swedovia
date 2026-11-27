@@ -1344,3 +1344,11 @@ a.position-item:hover .position-cta{color:var(--text)}
 .sos-home .sos-fork-arrow--l{left:calc(25% + 1px)}
 .sos-home .sos-fork-arrow--r{left:calc(75% - 1px)}
 @media(max-width:900px){.sos-home .sos-fork-arrow{display:none}}
+/* In-depth material link inside the educator guide card (homepage only) */
+.sos-home .sos-indepth{margin-top:1.2rem;padding-top:1rem;border-top:1px dashed rgba(43,37,32,.3);display:grid;grid-template-columns:1fr auto;gap:.3rem 1rem;align-items:center}
+.sos-home .sos-indepth-kicker{grid-column:1/-1;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.sos-home .sos-guide-text .sos-indepth p{margin:0;font-size:.92rem;color:var(--text)}
+.sos-home .sos-indepth-btns{display:flex;gap:.5rem;flex-wrap:wrap}
+.sos-home .sos-indepth-btns a{font-size:.86rem;font-weight:600;color:var(--accent);border:1.5px solid var(--accent);border-radius:3px;padding:.35rem .8rem;text-decoration:none;white-space:nowrap}
+.sos-home .sos-indepth-btns a:hover{background:var(--accent);color:var(--cream)}
+@media(max-width:700px){.sos-home .sos-indepth{grid-template-columns:1fr}}
